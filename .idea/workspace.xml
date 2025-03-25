@@ -4,7 +4,32 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0ea88e9-355b-4437-8bd2-0257141236ed" name="Changes" comment="Changes" />
+    <list default="true" id="a0ea88e9-355b-4437-8bd2-0257141236ed" name="Changes" comment="Changes">
+      <change afterPath="$PROJECT_DIR$/common/properties/JwtProperties.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/result/Result.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/utils/JwtUtil.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/dto/EmployeeLoginDTO.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/entity/Employee.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/vo/EmloyeeLoginVO.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/commonParams/params.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/controllerParams/params.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/functionParams/params.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/serviceParams/params.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/controller/admin/EmployeeController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/interceptor/JwtTokenAdminInterceptor.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/mapper/EmployeeMapper.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/routes/router.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/service/EmployeeService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/service/impl/EmployeeServiceImpl.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1edb980e-49b3-4d15-9806-b484cc4197a0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1edb980e-49b3-4d15-9806-b484cc4197a0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/app.conf" beforeDir="false" afterPath="$PROJECT_DIR$/resources/app.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,17 +70,31 @@
     "git-widget-placeholder": "master",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "D:/Program Files/gopath/outpath",
+    "last_opened_file_path": "E:/Go_workplace/sky-take-out/common/utils",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm"
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.tabs"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
-      "mysql"
+      "mysql",
+      "redis"
     ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Go_workplace\sky-take-out\common\utils" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Go_workplace\sky-take-out\resources\params" />
+      <recent name="E:\Go_workplace\sky-take-out" />
+      <recent name="E:\Go_workplace\sky-take-out\resources" />
+      <recent name="E:\Go_workplace\sky-take-out\common\result" />
+      <recent name="E:\Go_workplace\sky-take-out\server" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="sky-take-out" />
