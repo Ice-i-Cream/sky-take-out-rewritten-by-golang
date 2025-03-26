@@ -10,14 +10,14 @@ import (
 	"sky-take-out/pojo/entity"
 	"sky-take-out/pojo/vo"
 	"sky-take-out/resources/commonParams"
-	"sky-take-out/server/mapper"
+	"sky-take-out/resources/mapperParams"
 	"time"
 )
 
 type EmployeeServiceImpl struct{}
 
 func (e *EmployeeServiceImpl) Login(dto dto.EmployeeLoginDTO) (data vo.EmployeeLoginVO, err error) {
-	employee, err := mapper.GetByUsername(dto.Username)
+	employee, err := mapperParams.EmployeeMapper.GetByUsername(dto.Username)
 	if err != nil {
 		return data, err
 	}
@@ -56,9 +56,19 @@ func (e *EmployeeServiceImpl) Save(dto dto.EmployeeDTO) (err error) {
 		CreateUser: int64(int(commonParams.Thread.Get()["empId"].(float64))),
 		UpdateUser: int64(int(commonParams.Thread.Get()["empId"].(float64))),
 	}
-	return mapper.Save(employee)
+	return mapperParams.EmployeeMapper.Save(employee)
 }
 
 func (e *EmployeeServiceImpl) PageQuery(dto dto.EmployeePageQueryDTO) (res result.PageResult, err error) {
-	return mapper.PageQuery(dto)
+	return mapperParams.EmployeeMapper.PageQuery(dto)
+}
+func (e *EmployeeServiceImpl) StartOrStop(employee entity.Employee) error {
+	return mapperParams.EmployeeMapper.Update(employee)
+}
+func (e *EmployeeServiceImpl) GetById(id int) (entity.Employee, error) {
+	return mapperParams.EmployeeMapper.GetById(id)
+}
+
+func (e *EmployeeServiceImpl) Update(employee entity.Employee) error {
+	return mapperParams.EmployeeMapper.Update(employee)
 }

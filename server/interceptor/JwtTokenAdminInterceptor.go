@@ -26,7 +26,7 @@ func JwtTokenAdminInterceptor() gin.HandlerFunc {
 			}
 			commonParams.Thread.Set(claims)
 			var id = claims["empId"].(float64)
-			log.Printf("\njwt校验:%s\n当前员工id:%f\n", tokenString, id)
+			log.Printf("\njwt校验:%s\n当前员工id:%d\n", tokenString, int(id))
 		}
 
 		c.Next()

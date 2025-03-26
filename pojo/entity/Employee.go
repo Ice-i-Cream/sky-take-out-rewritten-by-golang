@@ -9,7 +9,7 @@ type Employee struct {
 	ID         int64     `json:"id"`
 	Username   string    `json:"username"`
 	Name       string    `json:"name"`
-	Password   string    `json:"password"`
+	Password   string    `json:"-"`
 	Phone      string    `json:"phone"`
 	Sex        string    `json:"sex"`
 	IDNumber   string    `json:"idNumber"`
