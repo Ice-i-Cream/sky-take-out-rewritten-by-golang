@@ -961,7 +961,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="279" parent="1" name="sky_take_out">
-      <LastIntrospectionLocalTimestamp>2025-03-24.03:29:05</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-03-26.08:01:28</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <user id="280" parent="1" name="mysql.infoschema">
@@ -1200,7 +1200,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>idx_category_name</UnderlyingIndexName>
     </key>
     <column id="324" parent="286" name="id">
-      <AutoIncrement>79</AutoIncrement>
+      <AutoIncrement>80</AutoIncrement>
       <Comment>主键</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -1311,7 +1311,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="345" parent="288" name="id">
-      <AutoIncrement>13</AutoIncrement>
+      <AutoIncrement>20</AutoIncrement>
       <Comment>主键</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -1399,7 +1399,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>idx_username</UnderlyingIndexName>
     </key>
     <column id="361" parent="289" name="id">
-      <AutoIncrement>55</AutoIncrement>
+      <AutoIncrement>56</AutoIncrement>
       <Comment>主键</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -1460,7 +1460,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="372" parent="290" name="id">
-      <AutoIncrement>39</AutoIncrement>
+      <AutoIncrement>40</AutoIncrement>
       <Comment>主键</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -1606,7 +1606,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="398" parent="291" name="id">
-      <AutoIncrement>34</AutoIncrement>
+      <AutoIncrement>35</AutoIncrement>
       <Comment>主键</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -1793,7 +1793,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="433" parent="294" name="id">
-      <AutoIncrement>5</AutoIncrement>
+      <AutoIncrement>6</AutoIncrement>
       <Comment>主键</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>

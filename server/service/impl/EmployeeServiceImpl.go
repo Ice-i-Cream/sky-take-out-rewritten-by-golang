@@ -60,6 +60,5 @@ func (e *EmployeeServiceImpl) Save(dto dto.EmployeeDTO) (err error) {
 }
 
 func (e *EmployeeServiceImpl) PageQuery(dto dto.EmployeePageQueryDTO) (res result.PageResult, err error) {
-	res, err = mapper.PageQuery(dto)
-	return res, nil
+	return mapper.PageQuery(dto)
 }

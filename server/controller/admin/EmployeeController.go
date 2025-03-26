@@ -6,7 +6,7 @@ import (
 	"sky-take-out/pojo/dto"
 	"sky-take-out/resources/functionParams"
 	"sky-take-out/resources/serviceParams"
-	"sky-take-out/server/service"
+	"strconv"
 )
 
 type EmployeeController struct{}
@@ -22,6 +22,10 @@ func (e *EmployeeController) Login(ctx *gin.Context) {
 	}
 	data, err := exec(ctx)
 	functionParams.PostProcess(ctx, err, data)
+}
+
+func (e *EmployeeController) Logout(ctx *gin.Context) {
+	functionParams.PostProcess(ctx, nil, nil)
 }
 
 func (e *EmployeeController) Save(ctx *gin.Context) {
@@ -41,13 +45,26 @@ func (e *EmployeeController) Save(ctx *gin.Context) {
 
 func (e *EmployeeController) PageQuery(ctx *gin.Context) {
 	exec := func(ctx *gin.Context) (data interface{}, err error) {
-		var employeePageQueryDTO dto.EmployeePageQueryDTO
-		err = ctx.ShouldBindQuery(&employeePageQueryDTO)
-		if err != nil {
-			return nil, err
+		employeePageQueryDTO := dto.EmployeePageQueryDTO{
+			Name: ctx.Query("name"),
+			PageSize: func() int {
+				pageSize, err := strconv.Atoi(ctx.Query("pageSize"))
+				if err != nil {
+					return 0
+				}
+				return pageSize
+			}(),
+			Page: func() int {
+				page, err := strconv.Atoi(ctx.Query("page"))
+				if err != nil {
+					return 0
+				}
+				return page
+			}(),
 		}
+
 		log.Println("员工分页查询")
-		return service.EmployeeService.PageQuery(employeePageQueryDTO)
+		return serviceParams.EmployeeService.PageQuery(employeePageQueryDTO)
 	}
 	data, err := exec(ctx)
 	functionParams.PostProcess(ctx, err, data)

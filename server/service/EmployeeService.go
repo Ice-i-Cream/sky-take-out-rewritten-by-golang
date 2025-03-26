@@ -9,5 +9,5 @@ import (
 type EmployeeService interface {
 	Login(dto dto.EmployeeLoginDTO) (vo.EmployeeLoginVO, error)
 	Save(dto dto.EmployeeDTO) error
-	PageQuery(queryDTO dto.EmployeePageQueryDTO) (result.PageResult, error)
+	PageQuery(dto dto.EmployeePageQueryDTO) (result.PageResult, error)
 }

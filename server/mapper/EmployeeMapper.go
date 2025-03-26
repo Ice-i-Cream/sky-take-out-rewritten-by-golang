@@ -2,6 +2,7 @@ package mapper
 
 import (
 	"database/sql"
+	"log"
 	"sky-take-out/common/result"
 	"sky-take-out/pojo/dto"
 	"sky-take-out/pojo/entity"
@@ -29,5 +30,30 @@ func Save(dto entity.Employee) (err error) {
 }
 
 func PageQuery(dto dto.EmployeePageQueryDTO) (res result.PageResult, err error) {
+	selectSQL := "select * from employee "
+	args := []interface{}{}
+	res.Records = []interface{}{}
+	if dto.Name != "" {
+		selectSQL = selectSQL + " where name like concat('%', ? ,'%')"
+		args = append(args, dto.Name)
+	}
+	args = append(args, dto.PageSize)
+	args = append(args, (dto.Page-1)*dto.PageSize)
+	selectSQL = selectSQL + " order by create_time desc limit ? offset ?"
+	log.Println(selectSQL, dto.Name)
+	rows, err := commonParams.Db.Query(selectSQL, args...)
+	if err != nil {
+		return res, err
+	}
+	res.Total = 0
+	for rows.Next() {
+		var employee entity.Employee
+		err = rows.Scan(&employee.ID, &employee.Name, &employee.Username, &employee.Password, &employee.Phone, &employee.Sex, &employee.IDNumber, &employee.Status, &employee.CreateTime, &employee.UpdateTime, &employee.CreateUser, &employee.UpdateUser)
+		if err != nil {
+			return res, err
+		}
+		res.Records = append(res.Records, employee)
+		res.Total++
+	}
 	return res, err
 }
