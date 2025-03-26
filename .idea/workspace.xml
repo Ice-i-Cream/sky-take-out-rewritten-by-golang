@@ -5,30 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0ea88e9-355b-4437-8bd2-0257141236ed" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/common/properties/JwtProperties.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/result/Result.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/utils/JwtUtil.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/dto/EmployeeLoginDTO.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/entity/Employee.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/vo/EmloyeeLoginVO.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/commonParams/params.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/controllerParams/params.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/functionParams/params.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/serviceParams/params.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/controller/admin/EmployeeController.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/interceptor/JwtTokenAdminInterceptor.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/mapper/EmployeeMapper.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/routes/router.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/service/EmployeeService.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/service/impl/EmployeeServiceImpl.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/constant/PasswordConstant.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/utils/Md5Util.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/dto/EmployeeDTO.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1edb980e-49b3-4d15-9806-b484cc4197a0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1edb980e-49b3-4d15-9806-b484cc4197a0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/app.conf" beforeDir="false" afterPath="$PROJECT_DIR$/resources/app.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/result/Result.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/result/Result.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controller/admin/EmployeeController.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/admin/EmployeeController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/mapper/EmployeeMapper.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/mapper/EmployeeMapper.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/service/EmployeeService.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/service/EmployeeService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/service/impl/EmployeeServiceImpl.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/service/impl/EmployeeServiceImpl.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,6 +124,17 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

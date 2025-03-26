@@ -2,6 +2,7 @@ package admin
 
 import (
 	"github.com/gin-gonic/gin"
+	"log"
 	"sky-take-out/pojo/dto"
 	"sky-take-out/resources/functionParams"
 	"sky-take-out/resources/serviceParams"
@@ -17,6 +18,21 @@ func (e *EmployeeController) Login(ctx *gin.Context) {
 			return nil, err
 		}
 		return serviceParams.EmployeeService.Login(employeeLoginDTO)
+	}
+	data, err := exec(ctx)
+	functionParams.PostProcess(ctx, err, data)
+}
+
+func (e *EmployeeController) Save(ctx *gin.Context) {
+	exec := func(ctx *gin.Context) (data interface{}, err error) {
+		var employeeDTO dto.EmployeeDTO
+		err = ctx.ShouldBindJSON(&employeeDTO)
+		if err != nil {
+			return nil, err
+		}
+		log.Println("新增员工：" + employeeDTO.Name)
+		err = serviceParams.EmployeeService.Save(employeeDTO)
+		return nil, err
 	}
 	data, err := exec(ctx)
 	functionParams.PostProcess(ctx, err, data)

@@ -3,8 +3,8 @@ package result
 // Result 结构体表示操作的结果，使用泛型T来表示数据的类型
 type Result[T any] struct {
 	Code    int    `json:"code"`
-	Message string `json:"message"`
-	Data    T      `json:"data,omitempty"`
+	Message string `json:"msg"`
+	Data    T      `json:"data"`
 }
 
 // Success 创建一个表示操作成功的 Result 对象，使用泛型T来表示数据的类型

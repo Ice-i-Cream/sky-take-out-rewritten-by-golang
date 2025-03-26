@@ -10,6 +10,7 @@ func SetupRouter() *gin.Engine {
 	r := gin.Default()
 	r.Use(interceptor.JwtTokenAdminInterceptor())
 	r.POST("/admin/employee/login", controllerParams.AdminEmployeeController.Login)
+	r.POST("/admin/employee", controllerParams.AdminEmployeeController.Save)
 
 	return r
 }

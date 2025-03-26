@@ -19,3 +19,9 @@ func GetByUsername(username string) (empolyee entity.Employee, err error) {
 
 	return employee, err
 }
+
+func Save(dto entity.Employee) (err error) {
+	insertSQL := "insert into employee (name, username, password, phone, sex, id_number, status, create_time, update_time, create_user, update_user) VALUES (?,?,?,?,?,?,?,?,?,?,?)"
+	_, err = commonParams.Db.Exec(insertSQL, dto.Name, dto.Username, dto.Password, dto.Phone, dto.Sex, dto.IDNumber, dto.Status, dto.CreateTime, dto.UpdateTime, dto.CreateUser, dto.UpdateUser)
+	return err
+}
