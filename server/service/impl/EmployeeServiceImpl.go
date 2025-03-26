@@ -4,6 +4,7 @@ import (
 	"errors"
 	"github.com/dgrijalva/jwt-go"
 	"sky-take-out/common/constant"
+	"sky-take-out/common/result"
 	"sky-take-out/common/utils"
 	"sky-take-out/pojo/dto"
 	"sky-take-out/pojo/entity"
@@ -56,4 +57,9 @@ func (e *EmployeeServiceImpl) Save(dto dto.EmployeeDTO) (err error) {
 		UpdateUser: int64(int(commonParams.Thread.Get()["empId"].(float64))),
 	}
 	return mapper.Save(employee)
+}
+
+func (e *EmployeeServiceImpl) PageQuery(dto dto.EmployeePageQueryDTO) (res result.PageResult, err error) {
+	res, err = mapper.PageQuery(dto)
+	return res, nil
 }

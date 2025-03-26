@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0ea88e9-355b-4437-8bd2-0257141236ed" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/common/constant/PasswordConstant.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/utils/Md5Util.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/dto/EmployeeDTO.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/result/PageResult.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/dto/EmployeePageQueryDTO.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/result/Result.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/result/Result.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controller/admin/EmployeeController.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/admin/EmployeeController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/mapper/EmployeeMapper.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/mapper/EmployeeMapper.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/router.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/service/EmployeeService.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/service/EmployeeService.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/service/impl/EmployeeServiceImpl.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/service/impl/EmployeeServiceImpl.go" afterDir="false" />
     </list>
@@ -32,6 +27,9 @@
   <component name="GOROOT" url="file://D:/Program Files/gopath/go1.23.4" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
