@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"sky-take-out/common/result"
+	"strconv"
 	"strings"
 )
 
@@ -35,4 +36,32 @@ func IsExcludedPath(excludedPrefixes []string, excludedPaths []string, urlPath s
 		}
 	}
 	return true
+}
+
+func GetUser(in interface{}) int64 {
+	user, ok := in.(float64)
+	if !ok {
+		return 0
+	}
+	return int64(user)
+}
+
+func ToInt(in interface{}) int {
+	i, ok := in.(int)
+	if ok {
+		return i
+	}
+	i64, ok := in.(int64)
+	if ok {
+		return int(i64)
+	}
+	str, ok := in.(string)
+	if ok {
+		i, err := strconv.Atoi(str)
+		if err != nil {
+			return -1
+		}
+		return i
+	}
+	return -1
 }

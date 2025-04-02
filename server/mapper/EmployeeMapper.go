@@ -40,7 +40,7 @@ func (e *EmployeeMapper) GetById(id int) (empolyee entity.Employee, err error) {
 	}
 	rows.Next()
 	err = rows.Scan(&employee.ID, &employee.Name, &employee.Username, &employee.Password, &employee.Phone, &employee.Sex, &employee.IDNumber, &employee.Status, &employee.CreateTime, &employee.UpdateTime, &employee.CreateUser, &employee.UpdateUser)
-
+	employee.Time = employee.UpdateTime.Format("2006-01-02 15:04:05")
 	return employee, err
 }
 
@@ -53,7 +53,7 @@ func (e *EmployeeMapper) Save(dto entity.Employee) (err error) {
 
 func (e *EmployeeMapper) PageQuery(dto dto.EmployeePageQueryDTO) (res result.PageResult, err error) {
 	selectSQL := "select * from employee"
-	args := []interface{}{}
+	var args []interface{}
 	res.Records = []interface{}{}
 	if dto.Name != "" {
 		selectSQL = selectSQL + " where name like concat('%', ? ,'%')"
@@ -74,6 +74,7 @@ func (e *EmployeeMapper) PageQuery(dto dto.EmployeePageQueryDTO) (res result.Pag
 		if err != nil {
 			return res, err
 		}
+		employee.Time = employee.UpdateTime.Format("2006-01-02 15:04:05")
 		res.Records = append(res.Records, employee)
 		res.Total++
 	}
@@ -82,8 +83,8 @@ func (e *EmployeeMapper) PageQuery(dto dto.EmployeePageQueryDTO) (res result.Pag
 
 func (e *EmployeeMapper) Update(emp entity.Employee) (err error) {
 	updateSQL := "update employee set" + ""
-	args := []interface{}{}
-	updates := []string{}
+	var args []interface{}
+	var updates []string
 	if emp.Name != "" {
 		updates = append(updates, " name = ?")
 		args = append(args, emp.Name)

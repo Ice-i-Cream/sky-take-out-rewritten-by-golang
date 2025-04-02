@@ -1,18 +1,12 @@
 package entity
 
-import (
-	"time"
-)
+import "time"
 
-// Employee 结构体定义
-type Employee struct {
+type Category struct {
 	ID         int64     `json:"id"`
-	Username   string    `json:"username"`
+	Type       int       `json:"type"`
 	Name       string    `json:"name"`
-	Password   string    `json:"-"`
-	Phone      string    `json:"phone"`
-	Sex        string    `json:"sex"`
-	IDNumber   string    `json:"idNumber"`
+	Sort       int       `json:"sort"`
 	Status     int       `json:"status"`
 	CreateTime time.Time `json:"createTime"`
 	UpdateTime time.Time `json:"-"`

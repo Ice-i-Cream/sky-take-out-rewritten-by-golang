@@ -8,7 +8,6 @@ import (
 	"sky-take-out/resources/commonParams"
 	"sky-take-out/resources/functionParams"
 	"sky-take-out/resources/serviceParams"
-	"strconv"
 	"time"
 )
 
@@ -49,23 +48,10 @@ func (e *EmployeeController) Save(ctx *gin.Context) {
 func (e *EmployeeController) PageQuery(ctx *gin.Context) {
 	exec := func(ctx *gin.Context) (data interface{}, err error) {
 		employeePageQueryDTO := dto.EmployeePageQueryDTO{
-			Name: ctx.Query("name"),
-			PageSize: func() int {
-				pageSize, err := strconv.Atoi(ctx.Query("pageSize"))
-				if err != nil {
-					return 0
-				}
-				return pageSize
-			}(),
-			Page: func() int {
-				page, err := strconv.Atoi(ctx.Query("page"))
-				if err != nil {
-					return 0
-				}
-				return page
-			}(),
+			Name:     ctx.Query("name"),
+			PageSize: functionParams.ToInt(ctx.Query("pageSize")),
+			Page:     functionParams.ToInt(ctx.Query("page")),
 		}
-
 		log.Println("员工分页查询")
 		return serviceParams.EmployeeService.PageQuery(employeePageQueryDTO)
 	}
@@ -75,23 +61,12 @@ func (e *EmployeeController) PageQuery(ctx *gin.Context) {
 
 func (e *EmployeeController) StartOrStop(ctx *gin.Context) {
 	exec := func(ctx *gin.Context) (data interface{}, err error) {
-		status, err := strconv.Atoi(ctx.Param("status"))
-		if err != nil {
-			return nil, err
-		}
-		id, err := strconv.Atoi(ctx.Query("id"))
-		if err != nil {
-			return nil, err
-		}
-		log.Printf("启用禁用员工账号 status = %d id = %d\n", status, id)
 		employee := entity.Employee{
-			Status: status,
-			ID:     int64(id),
-			UpdateUser: func() int64 {
-				user, _ := commonParams.Thread.Get()["empId"].(float64)
-				return int64(user)
-			}(),
+			Status:     functionParams.ToInt(ctx.Param("status")),
+			ID:         int64(functionParams.ToInt(ctx.Query("id"))),
+			UpdateUser: functionParams.GetUser(commonParams.Thread.Get()["empId"]),
 		}
+		log.Printf("启用禁用员工账号 status = %d id = %d\n", employee.Status, employee.ID)
 		err = serviceParams.EmployeeService.StartOrStop(employee)
 		return nil, err
 	}
@@ -101,10 +76,7 @@ func (e *EmployeeController) StartOrStop(ctx *gin.Context) {
 
 func (e *EmployeeController) GetById(ctx *gin.Context) {
 	exec := func(ctx *gin.Context) (data interface{}, err error) {
-		id, err := strconv.Atoi(ctx.Param("id"))
-		if err != nil {
-			return nil, err
-		}
+		id := functionParams.ToInt(ctx.Param("id"))
 		return serviceParams.EmployeeService.GetById(id)
 	}
 	data, err := exec(ctx)
@@ -113,24 +85,21 @@ func (e *EmployeeController) GetById(ctx *gin.Context) {
 
 func (e *EmployeeController) Update(ctx *gin.Context) {
 	exec := func(ctx *gin.Context) (data interface{}, err error) {
-		dto := dto.EmployeeDTO{}
-		err = ctx.ShouldBindJSON(&dto)
+		d := dto.EmployeeDTO{}
+		err = ctx.ShouldBindJSON(&d)
 		if err != nil {
 			return nil, err
 		}
 		employee := entity.Employee{
-			ID:         dto.ID,
-			Username:   dto.Username,
-			Name:       dto.Name,
-			Phone:      dto.Phone,
-			Sex:        dto.Sex,
-			IDNumber:   dto.IDNumber,
+			ID:         d.ID,
+			Username:   d.Username,
+			Name:       d.Name,
+			Phone:      d.Phone,
+			Sex:        d.Sex,
+			IDNumber:   d.IDNumber,
 			Status:     -1,
 			UpdateTime: time.Now(),
-			UpdateUser: func() int64 {
-				user, _ := commonParams.Thread.Get()["empId"].(float64)
-				return int64(user)
-			}(),
+			UpdateUser: functionParams.GetUser(commonParams.Thread.Get()["empId"]),
 		}
 
 		return nil, serviceParams.EmployeeService.Update(employee)

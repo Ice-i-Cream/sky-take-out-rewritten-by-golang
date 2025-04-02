@@ -6,3 +6,5 @@ import (
 )
 
 var EmployeeService service.EmployeeService = new(impl.EmployeeServiceImpl)
+var CategoryService service.CategoryService = new(impl.CategoryServiceImpl)
+var DishService service.DishService = new(impl.DishServiceImpl)

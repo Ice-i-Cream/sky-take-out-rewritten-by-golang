@@ -961,7 +961,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="279" parent="1" name="sky_take_out">
-      <LastIntrospectionLocalTimestamp>2025-03-26.08:01:28</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-04-01.04:41:19</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <user id="280" parent="1" name="mysql.infoschema">
@@ -1132,7 +1132,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="311" parent="285" name="id">
-      <AutoIncrement>34</AutoIncrement>
+      <AutoIncrement>45</AutoIncrement>
       <Comment>主键</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -1311,7 +1311,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="345" parent="288" name="id">
-      <AutoIncrement>20</AutoIncrement>
+      <AutoIncrement>26</AutoIncrement>
       <Comment>主键</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>

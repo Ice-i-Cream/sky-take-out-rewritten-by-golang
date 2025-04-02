@@ -13,6 +13,7 @@ import (
 
 var Thread = routine.NewThreadLocal[map[string]interface{}]()
 var Db *sql.DB
+var Tx *sql.Tx
 var RedisDb *redis.Client
 var ServerPort string
 var ServerHost string
