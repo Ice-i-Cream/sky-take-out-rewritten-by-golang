@@ -9,7 +9,11 @@ import (
 func SetupRouter() *gin.Engine {
 	r := gin.Default()
 	r.Use(interceptor.JwtTokenAdminInterceptor())
+	r.Use(interceptor.JwtTokenUserInterceptor())
 	r.Static("/image", "file/")
+
+	r.POST("/admin/common/upload", controllerParams.AdminCommonController.Upload)
+
 	r.POST("/admin/employee/login", controllerParams.AdminEmployeeController.Login)
 	r.POST("/admin/employee/logout", controllerParams.AdminEmployeeController.Logout)
 	r.POST("/admin/employee", controllerParams.AdminEmployeeController.Save)
@@ -24,11 +28,28 @@ func SetupRouter() *gin.Engine {
 	r.PUT("/admin/category", controllerParams.AdminCategoryController.Update)
 	r.POST("/admin/category/status/:status", controllerParams.AdminCategoryController.StartOrStop)
 	r.GET("/admin/category/list", controllerParams.AdminCategoryController.List)
+
 	r.GET("/admin/dish/page", controllerParams.AdminDishController.Page)
 	r.POST("/admin/dish", controllerParams.AdminDishController.Save)
-	r.POST("/admin/common/upload", controllerParams.AdminCommonController.Upload)
 	r.DELETE("/admin/dish", controllerParams.AdminDishController.Delete)
 	r.GET("/admin/dish/:id", controllerParams.AdminDishController.FindById)
+	r.PUT("/admin/dish", controllerParams.AdminDishController.Update)
+	r.GET("/admin/dish/list", controllerParams.AdminDishController.List)
+	r.POST("/admin/dish/status/:status", controllerParams.AdminDishController.StartOrStop)
+
+	r.GET("/admin/setmeal/page", controllerParams.AdminSetmealController.Page)
+	r.POST("/admin/setmeal", controllerParams.AdminSetmealController.Save)
+	r.DELETE("/admin/setmeal", controllerParams.AdminSetmealController.Delete)
+	r.GET("/admin/setmeal/:id", controllerParams.AdminSetmealController.GetById)
+	r.POST("/admin/setmeal/status/:status", controllerParams.AdminSetmealController.StartOrStop)
+	r.PUT("/admin/setmeal", controllerParams.AdminSetmealController.Update)
+
+	r.PUT("/admin/shop/:status", controllerParams.AdminShopController.SetStatus)
+	r.GET("/admin/shop/status", controllerParams.AdminShopController.GetStatus)
+
+	r.GET("/user/dish/list", controllerParams.UserDishController.List)
+
+	r.GET("/user/shop/status", controllerParams.UserShopController.GetStatus)
 
 	return r
 }

@@ -93,10 +93,11 @@ func (c *CategoryMapper) Update(category entity.Category) error {
 	return err
 }
 
-func (c *CategoryMapper) List(kind int) (list []entity.Category, err error) {
-	selectSQL := "select * from category where type=?"
-	log.Println(selectSQL, kind)
-	rows, err := commonParams.Db.Query(selectSQL, kind)
+func (c *CategoryMapper) List(kind int, status int) (list []entity.Category, err error) {
+	selectSQL := "select * from category where type=? and status=?"
+	args := []interface{}{kind, status}
+	log.Println(selectSQL, args)
+	rows, err := commonParams.Db.Query(selectSQL, args...)
 	if err != nil {
 		return list, err
 	}

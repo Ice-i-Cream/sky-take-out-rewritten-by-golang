@@ -22,6 +22,7 @@
     <schema id="15" parent="1" name="13"/>
     <schema id="16" parent="1" name="14"/>
     <schema id="17" parent="1" name="15"/>
-    <collection id="18" parent="2" name="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsiZW1wSWQiOjF9LCJleHAiOjE3NDI5MDY0NzF9.kOGMxnuK9xxH_8e2Yy6FocJBsye4ATegzVCJPl88PJA"/>
+    <collection id="18" parent="2" name="SHOP_STATUS"/>
+    <collection id="19" parent="2" name="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsiZW1wSWQiOjF9LCJleHAiOjE3NDYyNjEzMDV9.kjfc_uykL4t8fMBTASiX8Kmyxn2cZak0ekpS_vRs-bw"/>
   </database-model>
 </dataSource>

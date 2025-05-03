@@ -64,6 +64,35 @@ func (d *DishController) FindById(ctx *gin.Context) {
 
 }
 
-func (d *DishController) FindByIds(ctx *gin.Context) {
+func (d *DishController) Update(ctx *gin.Context) {
+	log.Println("修改菜品")
+	exec := func(ctx *gin.Context) (data interface{}, err error) {
+		var dishDTO dto.DishDTO
+		err = ctx.ShouldBindJSON(&dishDTO)
+		if err != nil {
+			return nil, err
+		}
+		return nil, serviceParams.DishService.UpdateWithFlavor(dishDTO)
+	}
+	data, err := exec(ctx)
+	functionParams.PostProcess(ctx, err, data)
+}
 
+func (d *DishController) List(ctx *gin.Context) {
+	exec := func(ctx *gin.Context) (data interface{}, err error) {
+		categoryId := functionParams.ToInt(ctx.Query("categoryId"))
+		return serviceParams.DishService.List(categoryId)
+	}
+	data, err := exec(ctx)
+	functionParams.PostProcess(ctx, err, data)
+}
+
+func (d *DishController) StartOrStop(ctx *gin.Context) {
+	exec := func(ctx *gin.Context) (data interface{}, err error) {
+		id := functionParams.ToInt(ctx.Query("id"))
+		status := functionParams.ToInt(ctx.Param("status"))
+		return nil, serviceParams.DishService.StartOrStop(status, id)
+	}
+	data, err := exec(ctx)
+	functionParams.PostProcess(ctx, err, data)
 }

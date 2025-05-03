@@ -2,9 +2,14 @@ package mapper
 
 import (
 	"log"
+	"sky-take-out/common/result"
+	"sky-take-out/pojo/dto"
+	"sky-take-out/pojo/entity"
+	"sky-take-out/pojo/vo"
 	"sky-take-out/resources/commonParams"
 	"sky-take-out/resources/functionParams"
 	"strings"
+	"time"
 )
 
 type SetmealMapper struct{}
@@ -45,4 +50,111 @@ func (s *SetmealMapper) GetSetmealIdByDishIds(list []string) ([]string, error) {
 		list = append(list, id)
 	}
 	return list, nil
+}
+
+func (s *SetmealMapper) PageQuery(dto dto.SetmealPageQueryDTO) (res result.PageResult, err error) {
+	selectSQL := "  select s.*,c.name categoryName from setmeal s left join category c on s.category_id = c.id where true"
+	var args []interface{}
+	if dto.Name != "" {
+		selectSQL += " and s.name like concat ('%' ,? ,'%')"
+		args = append(args, dto.Name)
+	}
+	if dto.CategoryId != -1 {
+		selectSQL += " and s.category_id = ?"
+		args = append(args, dto.CategoryId)
+	}
+	if dto.Status != -1 {
+		selectSQL += " and s.status = ?"
+		args = append(args, dto.Status)
+	}
+	selectSQL += " order by s.create_time desc limit ? offset ?" + ""
+	args = append(args, dto.PageSize)
+	args = append(args, (dto.Page-1)*dto.PageSize)
+	log.Println(selectSQL, args)
+	rows, err := commonParams.Db.Query(selectSQL, args...)
+	if err != nil {
+		return res, err
+	}
+	setmealVO := vo.SetmealVO{}
+	var ignore interface{}
+	res.Total = 0
+	res.Records = []interface{}{}
+	for rows.Next() {
+		err = rows.Scan(&setmealVO.ID, &setmealVO.CategoryID, &setmealVO.Name, &setmealVO.Price, &setmealVO.Status, &setmealVO.Description, &setmealVO.Image, &ignore, &setmealVO.UpdateTime, &ignore, &ignore, &setmealVO.CategoryName)
+		setmealVO.UTime = setmealVO.UpdateTime.Format("2006-01-02 15:04:05")
+		setmealVO.SetmealDishes = []entity.SetmealDish{}
+		res.Records = append(res.Records, setmealVO)
+		res.Total++
+	}
+	return res, nil
+
+}
+
+func (s *SetmealMapper) Insert(setmeal entity.Setmeal) (int, error) {
+	insertSQL := "insert into setmeal (category_id, name, price, description, image, create_time, update_time, create_user, update_user) VALUES (?,?,?,?,?,?,?,?,?)"
+	exec, err := commonParams.Db.Exec(insertSQL, setmeal.CategoryId, setmeal.Name, setmeal.Price, setmeal.Description, setmeal.Image, setmeal.CreateTime, setmeal.UpdateTime, setmeal.CreateUser, setmeal.UpdateUser)
+	if err != nil {
+		return 0, err
+	}
+	id, _ := exec.LastInsertId()
+	return int(id), err
+}
+
+func (s *SetmealMapper) GetById(id int) (setmeal entity.Setmeal, err error) {
+	selectSQL := "select * from setmeal where id = ?"
+	exec, err := commonParams.Db.Query(selectSQL, id)
+	if err != nil {
+		return setmeal, err
+	}
+	exec.Next()
+	err = exec.Scan(&setmeal.Id, &setmeal.CategoryId, &setmeal.Name, &setmeal.Price, &setmeal.Status, &setmeal.Description, &setmeal.Image, &setmeal.CreateTime, &setmeal.UpdateTime, &setmeal.CreateUser, &setmeal.UpdateUser)
+	return setmeal, err
+}
+
+func (s *SetmealMapper) DeleteById(id int) error {
+	deleteSQL := "delete from setmeal where id = ?"
+	_, err := commonParams.Tx.Exec(deleteSQL, id)
+	return err
+
+}
+
+func (s *SetmealMapper) Update(setmeal entity.Setmeal) error {
+	updateSQL := "update setmeal set status = ?"
+	args := []interface{}{setmeal.Status}
+
+	if setmeal.Name != "" {
+		updateSQL += ", name = ?"
+		args = append(args, setmeal.Name)
+	}
+	if setmeal.CategoryId != -1 {
+		updateSQL += ", category_id = ?"
+		args = append(args, setmeal.CategoryId)
+	}
+	if setmeal.Price != -1 {
+		updateSQL += ", price = ?"
+		args = append(args, setmeal.Price)
+	}
+	if setmeal.Description != "" {
+		updateSQL += ", description = ?"
+		args = append(args, setmeal.Description)
+	}
+	if setmeal.Image != "" {
+		updateSQL += ", image = ?"
+		args = append(args, setmeal.Image)
+	}
+	if setmeal.UpdateTime != *new(time.Time) {
+		updateSQL += ", update_time = ?"
+		args = append(args, setmeal.UpdateTime)
+	}
+	if setmeal.UpdateUser != -1 {
+		updateSQL += ", update_user = ?"
+		args = append(args, setmeal.UpdateUser)
+	}
+	updateSQL += " where id = ?"
+	args = append(args, setmeal.Id)
+
+	log.Println(updateSQL, args)
+
+	_, err := commonParams.Db.Exec(updateSQL, args...)
+	return err
 }

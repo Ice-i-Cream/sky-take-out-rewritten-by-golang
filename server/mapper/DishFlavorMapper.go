@@ -58,3 +58,11 @@ func (d *DishFlavorMapper) GetByDishId(id int) (list []entity.DishFlavor, err er
 	}
 	return list, nil
 }
+
+func (d *DishFlavorMapper) DeleteByDishId(id int64) error {
+	deleteSQL := "delete from dish_flavor where dish_id = ?"
+	log.Println(deleteSQL, id)
+	_, err := commonParams.Tx.Exec(deleteSQL, id)
+	return err
+
+}

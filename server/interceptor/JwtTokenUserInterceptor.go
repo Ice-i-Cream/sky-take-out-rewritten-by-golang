@@ -10,18 +10,17 @@ import (
 	"strings"
 )
 
-func JwtTokenAdminInterceptor() gin.HandlerFunc {
+func JwtTokenUserInterceptor() gin.HandlerFunc {
 	return func(c *gin.Context) {
 
-		if !strings.HasPrefix(c.Request.URL.Path, "/admin") {
+		if !strings.HasPrefix(c.Request.URL.Path, "/user") {
 			c.Next()
 			return
 		}
 
-		excludedPrefixes := []string{"/image"}
-		excludedPaths := []string{"/", "/admin/employee/login", "/admin/employee/register"}
+		excludedPaths := []string{"/", "/user/employee/login", "/user/shop/status"}
 
-		if functionParams.IsExcludedPath(excludedPrefixes, excludedPaths, c.Request.URL.Path) {
+		if functionParams.IsExcludedPath([]string{}, excludedPaths, c.Request.URL.Path) {
 			tokenString := c.GetHeader(commonParams.JwtProperties.AdminTokenName)
 
 			if commonParams.RedisDb.Get(commonParams.Ctx, tokenString).Val() != tokenString {
@@ -39,8 +38,8 @@ func JwtTokenAdminInterceptor() gin.HandlerFunc {
 				return
 			}
 			commonParams.Thread.Set(claims)
-			var id = claims["empId"].(float64)
-			log.Printf("\njwt校验:%s\n当前员工id:%d\n", tokenString, int(id))
+			var id = claims["userId"].(float64)
+			log.Printf("\njwt校验:%s\n当前用户id:%d\n", tokenString, int(id))
 		}
 
 		c.Next()

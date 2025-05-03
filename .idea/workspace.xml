@@ -4,7 +4,79 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0ea88e9-355b-4437-8bd2-0257141236ed" name="Changes" comment="Changes" />
+    <list default="true" id="a0ea88e9-355b-4437-8bd2-0257141236ed" name="Changes" comment="Changes">
+      <change afterPath="$PROJECT_DIR$/file/07b1ed1b-96e6-4999-915e-e8194cb6b7fb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file/28babc35-10da-4dfd-ab49-0a13b43bddee.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file/2c880e42-412a-4e3d-8767-d71ee31f04a3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file/5e4896ee-c1d3-48e0-b2b1-fff5242f09f3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file/a2c99664-245e-425c-82c2-cc3cdb947964.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file/b28ec49e-fd31-49c5-9c22-0b8a6808922a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file/b570536b-eb75-4077-bb2f-7e982718e977.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file/bda5fe15-228a-4ed1-af43-3b860913f8f4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file/d7629977-14aa-4d57-8153-d362e98cc507.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file/eb847d66-8c1e-49e5-aba3-57e78cbc2b6d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file/eb884d1f-5cda-4df6-bdd1-1f64d6bed810.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file/ff55c330-d068-4570-8589-e8f411c959bd.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/dto/SetmealDTO.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/dto/SetmealPageQueryDTO.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/dto/UserLoginDTO.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/entity/Setmeal.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/entity/SetmealDish.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/vo/SetmealVO.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/controller/admin/SetmealController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/controller/admin/ShopController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/controller/user/DishController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/controller/user/ShopController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/controller/user/UserController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/interceptor/JwtTokenUserInterceptor.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/mapper/SetmealDishMapper.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/service/SetmealService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/service/impl/SetmealServiceImpl.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b486ed75-c359-42de-90ea-07b6fb6a2015.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b486ed75-c359-42de-90ea-07b6fb6a2015.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/06327310-acb0-42c0-8a3a-dc12bfe6fc42.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/0f171802-7765-44ac-b9ab-3608569c92c9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/1bf75ae1-6481-4105-a75c-8b97f9edfdb3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/file/2464a8d3-aefc-4765-8b40-cbcdb00e7a7c.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/2e9dfd93-4164-486f-921d-e6f2a6feb99a.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/30dddea1-6fe0-4ab2-b809-e6cd54ea627c.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/file/090dcbc5-914c-470e-8b19-8f8b5c5d8461.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/3387c0cf-63d0-4c2a-adf6-393be1a4c88f.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/42d8e693-62cc-4448-a82a-675dcc823924.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/45ad8244-ec92-413c-9250-98d833165b3c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/5c05788d-26e7-4a5d-a965-ee8c8f1f0de8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/6064ec5c-389b-46d5-8963-68f3cbbf93b1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/6d0c4eec-cb35-45bd-9650-9dfcff7681ad.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/6f411242-39ca-4054-b4f1-24cfd0462157.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/7c4bb4e7-0979-4d6f-ae43-50c289d24298.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/file/4cbbef0a-5a8c-480c-b28d-0762d25d391d.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/7f67f11b-d9dc-4e7c-a709-0ab266c6f301.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/810c6607-6f43-4885-904c-100a332b2045.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/817a42b4-24d4-4ae8-b63f-8241f3789e79.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/file/0eb6195f-9675-46cc-bb79-63a503db5da1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/93895f42-a7d4-47c0-9cb0-82462454105d.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/9f4d374c-f646-4909-a21e-d395bc061406.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/a42bb725-89dd-4aea-af97-27a28697dbb4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/a953682d-7ae7-473c-ae95-ca2641c390c4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/c2dca604-54f0-4b40-9c51-0ea586bacd82.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/d3ef91a5-a01f-4cfb-b6c8-27521013afde.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/file/21ebb1ab-d236-4410-af8f-422fc8350ff4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/dd3d9f31-acf5-45a1-878f-fb5545580172.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/file/0cfc0880-7e10-4108-a69b-7f75c49316f9.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/f5f01be6-7bdd-462d-ac9a-bb861eac341a.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/file/15dec55f-b047-427b-b7da-04df81cdcd0f.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/feb8c9d3-02d3-4f9e-89f9-2656100a0360.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pojo/entity/Dish.go" beforeDir="false" afterPath="$PROJECT_DIR$/pojo/entity/Dish.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/app.conf" beforeDir="false" afterPath="$PROJECT_DIR$/resources/app.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/controllerParams/params.go" beforeDir="false" afterPath="$PROJECT_DIR$/resources/controllerParams/params.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/functionParams/params.go" beforeDir="false" afterPath="$PROJECT_DIR$/resources/functionParams/params.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/mapperParams/params.go" beforeDir="false" afterPath="$PROJECT_DIR$/resources/mapperParams/params.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/serviceParams/params.go" beforeDir="false" afterPath="$PROJECT_DIR$/resources/serviceParams/params.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controller/admin/DishController.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/admin/DishController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/interceptor/JwtTokenAdminInterceptor.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/interceptor/JwtTokenAdminInterceptor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/mapper/CategoryMapper.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/mapper/CategoryMapper.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/mapper/DishFlavorMapper.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/mapper/DishFlavorMapper.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/mapper/DishMapper.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/mapper/DishMapper.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/mapper/SetmealMapper.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/mapper/SetmealMapper.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/service/DishService.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/service/DishService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/service/impl/CategoryServiceImpl.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/service/impl/CategoryServiceImpl.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/service/impl/DishServiceImpl.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/service/impl/DishServiceImpl.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,37 +107,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
-    &quot;Go 构建.go build sky-take-out.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.automatic.dependencies.download&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Go_workplace/big_event&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultGoTemplateProperty": "Go File",
+    "Go 构建.go build sky-take-out.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "git-widget-placeholder": "master",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "E:/Go_workplace/sky-take-out/server/interceptor",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.tabs"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;,
-      &quot;redis&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql",
+      "redis"
     ],
-    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言&quot;: [
-      &quot;MySQL&quot;
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言": [
+      "MySQL"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Go_workplace\sky-take-out\server\interceptor" />
       <recent name="E:\Go_workplace\sky-take-out\common\utils" />
     </key>
     <key name="MoveFile.RECENT_KEYS">

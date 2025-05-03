@@ -118,3 +118,60 @@ func (d *DishServiceImpl) GetByIdWithFlavor(id int) (vo.DishVO, error) {
 	return dishVO, nil
 
 }
+
+func (d *DishServiceImpl) UpdateWithFlavor(dishDTO dto.DishDTO) (err error) {
+	dish := entity.Dish{
+		ID:          int64(functionParams.ToInt(dishDTO.ID)),
+		Name:        dishDTO.Name,
+		CategoryID:  int64(functionParams.ToInt(dishDTO.CategoryID)),
+		Price:       float64(functionParams.ToInt(dishDTO.Price)),
+		Image:       dishDTO.Image,
+		Description: dishDTO.Description,
+		Status:      dishDTO.Status,
+		UpdateTime:  time.Now(),
+		UpdateUser:  functionParams.GetUser(commonParams.Thread.Get()["empId"]),
+	}
+
+	err = mapperParams.DishMapper.Update(dish)
+	if err != nil {
+		return err
+	}
+
+	list := dishDTO.Flavors
+	commonParams.Tx, err = commonParams.Db.Begin()
+
+	err = mapperParams.DishFlavorMapper.DeleteByDishId(dish.ID)
+	if err != nil {
+		_ = commonParams.Tx.Rollback()
+		return err
+	}
+
+	if len(list) > 0 {
+		err = mapperParams.DishFlavorMapper.InsertBatch(list, dish.ID)
+		if err != nil {
+			_ = commonParams.Tx.Rollback()
+			return err
+		}
+	}
+
+	return commonParams.Tx.Commit()
+}
+
+func (d *DishServiceImpl) List(id int) ([]entity.Dish, error) {
+	dish := entity.Dish{
+		CategoryID: int64(functionParams.ToInt(id)),
+		Status:     functionParams.ToInt(constant.ENABLE),
+	}
+	return mapperParams.DishMapper.List(dish)
+}
+
+func (d *DishServiceImpl) StartOrStop(status int, id int) error {
+	dish := entity.Dish{
+		ID:         int64(id),
+		CategoryID: -1,
+		Price:      -1,
+		Status:     status,
+		UpdateUser: -1,
+	}
+	return mapperParams.DishMapper.Update(dish)
+}

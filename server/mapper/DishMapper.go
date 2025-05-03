@@ -9,6 +9,7 @@ import (
 	"sky-take-out/resources/commonParams"
 	"sky-take-out/resources/functionParams"
 	"strings"
+	"time"
 )
 
 type DishMapper struct{}
@@ -21,6 +22,7 @@ func (d *DishMapper) CountByCategoryId(value int) (count int, err error) {
 }
 
 func (d *DishMapper) PageQuery(dto dto.DishPageQueryDTO) (res result.PageResult, err error) {
+	res.Records = []interface{}{}
 	selectSQL := "select d.*,c.name as categoryName from dish d left join category c on d.category_id = c.id where true"
 	var args []interface{}
 	if dto.Name != "" {
@@ -61,18 +63,7 @@ func (d *DishMapper) PageQuery(dto dto.DishPageQueryDTO) (res result.PageResult,
 
 func (d *DishMapper) Insert(dish entity.Dish) (dishId int64, err error) {
 	insertSQL := "insert into dish (name, category_id, price, image, description, status, create_time, update_time, create_user, update_user) VALUES (?,?,?,?,?,?,?,?,?,?)"
-	args := []interface{}{
-		dish.Name,
-		dish.CategoryID,
-		dish.Price,
-		dish.Image,
-		dish.Description,
-		dish.Status,
-		dish.CreateTime,
-		dish.UpdateTime,
-		dish.CreateUser,
-		dish.UpdateUser,
-	}
+	args := []interface{}{dish.Name, dish.CategoryID, dish.Price, dish.Image, dish.Description, dish.Status, dish.CreateTime, dish.UpdateTime, dish.CreateUser, dish.UpdateUser}
 	log.Println(insertSQL, args)
 	res, err := commonParams.Tx.Exec(insertSQL, args...)
 	if err != nil {
@@ -109,4 +100,79 @@ func (d *DishMapper) DeleteByIds(list []string) error {
 	log.Println(deleteSQL, args)
 	_, err := commonParams.Tx.Exec(deleteSQL, args...)
 	return err
+}
+
+func (d *DishMapper) Update(dish entity.Dish) error {
+	updateSQL := "update dish set status=?"
+	var args []interface{}
+	args = append(args, dish.Status)
+
+	if dish.Name != "" {
+		updateSQL += ", name=?"
+		args = append(args, dish.Name)
+	}
+	if dish.CategoryID != -1 {
+		updateSQL += ", category_id=?"
+		args = append(args, dish.CategoryID)
+	}
+	if dish.Price != -1 {
+		updateSQL += ", price=?"
+		args = append(args, dish.Price)
+	}
+	if dish.Image != "" {
+		updateSQL += ", image=?"
+		args = append(args, dish.Image)
+	}
+	if dish.Description != "" {
+		updateSQL += ", description=?"
+		args = append(args, dish.Description)
+	}
+	if dish.UpdateTime != *new(time.Time) {
+		updateSQL += ", update_time=?"
+		args = append(args, dish.UpdateTime)
+	}
+	if dish.UpdateUser != -1 {
+		updateSQL += ", update_user=?"
+		args = append(args, dish.UpdateUser)
+	}
+	updateSQL = updateSQL + " where id=?"
+	args = append(args, dish.ID)
+	log.Println(updateSQL, args)
+	_, err := commonParams.Db.Exec(updateSQL, args...)
+	return err
+}
+
+func (d *DishMapper) List(dish entity.Dish) (list []entity.Dish, err error) {
+	selectSQL := "select * from dish where true"
+	args := []interface{}{}
+	if dish.Name != "" {
+		selectSQL += " and name like concat( '%' ? '%' )"
+		args = append(args, dish.Name)
+	}
+	if dish.CategoryID != -1 {
+		selectSQL += " and category_id=?"
+		args = append(args, dish.CategoryID)
+	}
+	if dish.Status != -1 {
+		selectSQL += " and status=?"
+		args = append(args, dish.Status)
+	}
+	selectSQL = selectSQL + " order by create_time desc"
+	log.Println(selectSQL, args)
+	rows, err := commonParams.Db.Query(selectSQL, args...)
+	if err != nil {
+		return list, err
+	}
+	for rows.Next() {
+		var dish entity.Dish
+		err := rows.Scan(&dish.ID, &dish.Name, &dish.CategoryID, &dish.Price, &dish.Image, &dish.Description, &dish.Status, &dish.CreateTime, &dish.UpdateTime, &dish.CreateUser, &dish.UpdateUser)
+		if err != nil {
+			return nil, err
+		}
+		dish.CTime = dish.CreateTime.Format("2006-01-02 15:04:05")
+		dish.UTime = dish.UpdateTime.Format("2006-01-02 15:04:05")
+
+		list = append(list, dish)
+	}
+	return list, err
 }

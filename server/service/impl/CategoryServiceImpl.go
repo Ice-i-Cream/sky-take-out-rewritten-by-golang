@@ -67,5 +67,5 @@ func (c *CategoryServiceImpl) StartOrStop(status int, id int) error {
 }
 
 func (c *CategoryServiceImpl) List(kind int) ([]entity.Category, error) {
-	return mapperParams.CategoryMapper.List(kind)
+	return mapperParams.CategoryMapper.List(kind, constant.ENABLE)
 }

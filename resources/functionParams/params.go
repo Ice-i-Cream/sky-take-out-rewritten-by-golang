@@ -55,13 +55,20 @@ func ToInt(in interface{}) int {
 	if ok {
 		return int(i64)
 	}
+	f64, ok := in.(float64)
+	if ok {
+		return int(f64)
+	}
+	f32, ok := in.(float32)
+	if ok {
+		return int(f32)
+	}
 	str, ok := in.(string)
 	if ok {
 		i, err := strconv.Atoi(str)
-		if err != nil {
-			return -1
+		if err == nil {
+			return i
 		}
-		return i
 	}
 	return -1
 }
