@@ -14,3 +14,5 @@ var AdminShopController admin.ShopController
 
 var UserDishController user.DishController
 var UserShopController user.ShopController
+var UserUserController user.UserController
+var UserCategoryController user.CategoryController

@@ -18,10 +18,10 @@ func JwtTokenUserInterceptor() gin.HandlerFunc {
 			return
 		}
 
-		excludedPaths := []string{"/", "/user/employee/login", "/user/shop/status"}
+		excludedPaths := []string{"/", "/user/user/login", "/user/shop/status"}
 
 		if functionParams.IsExcludedPath([]string{}, excludedPaths, c.Request.URL.Path) {
-			tokenString := c.GetHeader(commonParams.JwtProperties.AdminTokenName)
+			tokenString := c.GetHeader(commonParams.JwtProperties.UserTokenName)
 
 			if commonParams.RedisDb.Get(commonParams.Ctx, tokenString).Val() != tokenString {
 				log.Printf("\nError parsing JWT: token失效\n")
@@ -30,7 +30,7 @@ func JwtTokenUserInterceptor() gin.HandlerFunc {
 				return
 			}
 
-			claims, err := utils.ParseToken(tokenString, commonParams.JwtProperties.AdminSecretKey)
+			claims, err := utils.ParseToken(tokenString, commonParams.JwtProperties.UserSecretKey)
 			if err != nil {
 				log.Printf("Error parsing JWT: %v\n", err)
 				c.JSON(http.StatusUnauthorized, gin.H{"error": "Unauthorized"})

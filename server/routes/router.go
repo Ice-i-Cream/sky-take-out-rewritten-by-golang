@@ -49,7 +49,11 @@ func SetupRouter() *gin.Engine {
 
 	r.GET("/user/dish/list", controllerParams.UserDishController.List)
 
+	r.GET("/user/category/list", controllerParams.UserCategoryController.List)
+
 	r.GET("/user/shop/status", controllerParams.UserShopController.GetStatus)
+
+	r.POST("/user/user/login", controllerParams.UserUserController.Login)
 
 	return r
 }

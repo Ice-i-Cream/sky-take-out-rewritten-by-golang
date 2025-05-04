@@ -94,8 +94,13 @@ func (c *CategoryMapper) Update(category entity.Category) error {
 }
 
 func (c *CategoryMapper) List(kind int, status int) (list []entity.Category, err error) {
-	selectSQL := "select * from category where type=? and status=?"
-	args := []interface{}{kind, status}
+	selectSQL := "select * from category where  status = ? "
+	args := []interface{}{status}
+	if kind != -1 {
+		selectSQL = selectSQL + "and type = ? "
+		args = append(args, kind)
+	}
+
 	log.Println(selectSQL, args)
 	rows, err := commonParams.Db.Query(selectSQL, args...)
 	if err != nil {
