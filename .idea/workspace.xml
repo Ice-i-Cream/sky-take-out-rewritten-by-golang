@@ -4,24 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0ea88e9-355b-4437-8bd2-0257141236ed" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/pojo/entity/User.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/vo/UserLoginVO.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/controller/user/CategoryController.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/mapper/UserMapper.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/service/UserService.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/service/impl/UserServiceImpl.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/app.conf" beforeDir="false" afterPath="$PROJECT_DIR$/resources/app.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/commonParams/params.go" beforeDir="false" afterPath="$PROJECT_DIR$/resources/commonParams/params.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/controllerParams/params.go" beforeDir="false" afterPath="$PROJECT_DIR$/resources/controllerParams/params.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/mapperParams/params.go" beforeDir="false" afterPath="$PROJECT_DIR$/resources/mapperParams/params.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/serviceParams/params.go" beforeDir="false" afterPath="$PROJECT_DIR$/resources/serviceParams/params.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controller/user/UserController.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/user/UserController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/interceptor/JwtTokenUserInterceptor.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/interceptor/JwtTokenUserInterceptor.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/mapper/CategoryMapper.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/mapper/CategoryMapper.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/router.go" afterDir="false" />
-    </list>
+    <list default="true" id="a0ea88e9-355b-4437-8bd2-0257141236ed" name="Changes" comment="Changes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,7 +39,7 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "DefaultGoTemplateProperty": "Go File",
-    "Go 构建.go build sky-take-out.executor": "Debug",
+    "Go 构建.go build sky-take-out.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
