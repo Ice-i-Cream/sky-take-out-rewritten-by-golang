@@ -13,6 +13,10 @@ var AdminSetmealController admin.SetMealController
 var AdminShopController admin.ShopController
 
 var UserDishController user.DishController
+var UserShoppingCartController user.ShoppingCartController
 var UserShopController user.ShopController
 var UserUserController user.UserController
 var UserCategoryController user.CategoryController
+var UserSetmealController user.SetmealController
+var UserAddressBookController user.AddressBookController
+var UserOrderController user.OrderController

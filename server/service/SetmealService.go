@@ -3,6 +3,7 @@ package service
 import (
 	"sky-take-out/common/result"
 	"sky-take-out/pojo/dto"
+	"sky-take-out/pojo/entity"
 	"sky-take-out/pojo/vo"
 )
 
@@ -13,4 +14,6 @@ type SetmealService interface {
 	GetByIdWithDish(param string) (vo.SetmealVO, error)
 	Update(setmealDTO dto.SetmealDTO) error
 	StartOrStop(setmealDTO dto.SetmealDTO) error
+	List(setmeal entity.Setmeal) ([]entity.Setmeal, error)
+	GetDishItemById(id int64) ([]vo.DishItemVO, error)
 }

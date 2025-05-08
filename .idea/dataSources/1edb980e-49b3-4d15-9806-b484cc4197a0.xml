@@ -958,6 +958,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="278" parent="1" name="big_event">
+      <LastIntrospectionLocalTimestamp>2025-05-06.06:18:25</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="279" parent="1" name="sky_take_out">

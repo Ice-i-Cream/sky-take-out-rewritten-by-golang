@@ -149,3 +149,11 @@ func (s *SetmealServiceImpl) StartOrStop(setmealDTO dto.SetmealDTO) error {
 	err := mapperParams.SetmealMapper.Update(setmeal)
 	return err
 }
+
+func (s *SetmealServiceImpl) List(setmeal entity.Setmeal) ([]entity.Setmeal, error) {
+	return mapperParams.SetmealMapper.List(setmeal)
+}
+
+func (s *SetmealServiceImpl) GetDishItemById(id int64) ([]vo.DishItemVO, error) {
+	return mapperParams.SetmealMapper.GetDishItemBySetmealId(id)
+}

@@ -158,3 +158,52 @@ func (s *SetmealMapper) Update(setmeal entity.Setmeal) error {
 	_, err := commonParams.Db.Exec(updateSQL, args...)
 	return err
 }
+
+func (s *SetmealMapper) List(setmeal entity.Setmeal) (setmeals []entity.Setmeal, err error) {
+	selectSQL := "select * from setmeal where true"
+	args := []interface{}{}
+
+	if setmeal.Name != "" {
+		selectSQL += " and name = ?"
+		args = append(args, setmeal.Name)
+	}
+	if setmeal.CategoryId != -1 {
+		selectSQL += " and category_id = ?"
+		args = append(args, setmeal.CategoryId)
+	}
+	if setmeal.Status != -1 {
+		selectSQL += " and status = ?"
+		args = append(args, setmeal.Status)
+	}
+	log.Println(selectSQL, args)
+	rows, err := commonParams.Db.Query(selectSQL, args...)
+	if err != nil {
+		return nil, err
+	}
+	for rows.Next() {
+		var setmeal entity.Setmeal
+		_ = rows.Scan(&setmeal.Id, &setmeal.CategoryId, &setmeal.Name, &setmeal.Price, &setmeal.Status, &setmeal.Description, &setmeal.Image, &setmeal.CreateTime, &setmeal.UpdateTime, &setmeal.CreateUser, &setmeal.UpdateUser)
+		setmeals = append(setmeals, setmeal)
+	}
+	return setmeals, err
+
+}
+
+func (s *SetmealMapper) GetDishItemBySetmealId(id int64) (vos []vo.DishItemVO, err error) {
+	selectSQL := "select sd.name, sd.copies, d.image, d.description from setmeal_dish sd left join dish d on sd.dish_id = d.id where sd.setmeal_id = ?"
+	args := []interface{}{id}
+	log.Println(selectSQL, args)
+	rows, err := commonParams.Db.Query(selectSQL, args...)
+	if err != nil {
+		return nil, err
+	}
+	for rows.Next() {
+		var dishvo = vo.DishItemVO{}
+		err := rows.Scan(&dishvo.Name, &dishvo.Copies, &dishvo.Image, &dishvo.Description)
+		if err != nil {
+			return nil, err
+		}
+		vos = append(vos, dishvo)
+	}
+	return vos, err
+}

@@ -4,7 +4,40 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0ea88e9-355b-4437-8bd2-0257141236ed" name="Changes" comment="Changes" />
+    <list default="true" id="a0ea88e9-355b-4437-8bd2-0257141236ed" name="Changes" comment="Changes">
+      <change afterPath="$PROJECT_DIR$/pojo/dto/OrdersSubmitDTO.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/dto/ShoppingCartDTO.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/entity/AddressBook.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/entity/OrderDetail.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/entity/Orders.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/entity/ShoppingCart.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/vo/DishItemVO.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pojo/vo/OrderSubmitVO.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/controller/user/AddressBookController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/controller/user/OrderController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/controller/user/SetmealController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/controller/user/ShoppingCartController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/mapper/AddressBookMapper.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/mapper/OrderDetailMapper.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/mapper/OrderMapper.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/mapper/ShoppingCartMapper.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/service/AddressBookService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/service/OrderService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/service/ShoppingCartService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/service/impl/AddressBookServiceImpl.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/service/impl/OrderServiceImpl.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/service/impl/ShoppingCartServiceImpl.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1edb980e-49b3-4d15-9806-b484cc4197a0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1edb980e-49b3-4d15-9806-b484cc4197a0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/controllerParams/params.go" beforeDir="false" afterPath="$PROJECT_DIR$/resources/controllerParams/params.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/mapperParams/params.go" beforeDir="false" afterPath="$PROJECT_DIR$/resources/mapperParams/params.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/serviceParams/params.go" beforeDir="false" afterPath="$PROJECT_DIR$/resources/serviceParams/params.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/mapper/SetmealMapper.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/mapper/SetmealMapper.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/service/SetmealService.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/service/SetmealService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/service/impl/SetmealServiceImpl.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/service/impl/SetmealServiceImpl.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

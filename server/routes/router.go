@@ -55,5 +55,21 @@ func SetupRouter() *gin.Engine {
 
 	r.POST("/user/user/login", controllerParams.UserUserController.Login)
 
+	r.GET("/user/setmeal/dish/:id", controllerParams.UserSetmealController.DishList)
+	r.GET("/user/setmeal/list", controllerParams.UserSetmealController.List)
+
+	r.GET("/user/shoppingCart/list", controllerParams.UserShoppingCartController.List)
+	r.POST("/user/shoppingCart/add", controllerParams.UserShoppingCartController.Add)
+
+	r.GET("/user/addressBook/list", controllerParams.UserAddressBookController.List)
+	r.GET("/user/addressBook/default", controllerParams.UserAddressBookController.GetDefault)
+	r.POST("/user/addressBook", controllerParams.UserAddressBookController.Save)
+	r.GET("/user/addressBook/:id", controllerParams.UserAddressBookController.GetById)
+	r.PUT("/user/addressBook", controllerParams.UserAddressBookController.Update)
+	r.PUT("/user/addressBook/default", controllerParams.UserAddressBookController.SetDefault)
+	r.DELETE("/user/addressBook", controllerParams.UserAddressBookController.Delete)
+
+	r.POST("/user/order/submit", controllerParams.UserOrderController.Submit)
+
 	return r
 }
