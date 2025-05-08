@@ -5,38 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0ea88e9-355b-4437-8bd2-0257141236ed" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/pojo/dto/OrdersSubmitDTO.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/dto/ShoppingCartDTO.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/entity/AddressBook.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/entity/OrderDetail.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/entity/Orders.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/entity/ShoppingCart.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/vo/DishItemVO.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pojo/vo/OrderSubmitVO.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/controller/user/AddressBookController.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/controller/user/OrderController.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/controller/user/SetmealController.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/controller/user/ShoppingCartController.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/mapper/AddressBookMapper.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/mapper/OrderDetailMapper.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/mapper/OrderMapper.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/mapper/ShoppingCartMapper.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/service/AddressBookService.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/service/OrderService.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/service/ShoppingCartService.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/service/impl/AddressBookServiceImpl.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/service/impl/OrderServiceImpl.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/service/impl/ShoppingCartServiceImpl.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1edb980e-49b3-4d15-9806-b484cc4197a0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1edb980e-49b3-4d15-9806-b484cc4197a0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/controllerParams/params.go" beforeDir="false" afterPath="$PROJECT_DIR$/resources/controllerParams/params.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/mapperParams/params.go" beforeDir="false" afterPath="$PROJECT_DIR$/resources/mapperParams/params.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/serviceParams/params.go" beforeDir="false" afterPath="$PROJECT_DIR$/resources/serviceParams/params.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/mapper/SetmealMapper.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/mapper/SetmealMapper.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/service/SetmealService.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/service/SetmealService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/service/impl/SetmealServiceImpl.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/service/impl/SetmealServiceImpl.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,35 +37,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultGoTemplateProperty": "Go File",
-    "Go 构建.go build sky-take-out.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "git-widget-placeholder": "master",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "E:/Go_workplace/sky-take-out/server/controller/user",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.tabs"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;Go 构建.go build sky-take-out.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.automatic.dependencies.download&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Go_workplace/sky-take-out/server/controller/user&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql",
-      "redis"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;,
+      &quot;redis&quot;
     ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言": [
-      "MySQL"
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言&quot;: [
+      &quot;MySQL&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Go_workplace\sky-take-out\server\controller\user" />
