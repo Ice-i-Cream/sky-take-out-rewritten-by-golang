@@ -21,7 +21,6 @@ func (s *ShoppingCartServiceImpl) ShowShoppingCart() ([]entity.ShoppingCart, err
 		DishID:    -1,
 	}
 	return mapperParams.ShoppingCartMapper.List(shoppingCart)
-
 }
 
 func (s *ShoppingCartServiceImpl) AddShoppingCart(dto dto.ShoppingCartDTO) error {
@@ -70,18 +69,7 @@ func (s *ShoppingCartServiceImpl) AddShoppingCart(dto dto.ShoppingCartDTO) error
 
 func (s *ShoppingCartServiceImpl) CleanShoppingCart() (err error) {
 	userId := commonParams.Thread.Get()["userId"].(float64)
-	commonParams.Tx, err = commonParams.Db.Begin()
-	if err != nil {
-		return err
-	}
-
-	err = mapperParams.ShoppingCartMapper.DeleteByUserId(int64(userId))
-	if err != nil {
-		commonParams.Tx.Rollback()
-		return err
-	}
-	return commonParams.Tx.Commit()
-
+	return mapperParams.ShoppingCartMapper.DeleteByUserId(int64(userId))
 }
 
 func (s *ShoppingCartServiceImpl) SubShoppingCart(dto dto.ShoppingCartDTO) error {

@@ -28,9 +28,7 @@ func (u *UserServiceImpl) WxLogin(dto dto.UserLoginDTO) (user entity.User, err e
 			OpenID:     openid,
 			CreateTime: time.Now(),
 		}
-		commonParams.Tx, err = commonParams.Db.Begin()
 		err = mapperParams.UserMapper.Insert(user)
-		err = commonParams.Tx.Commit()
 	}
 	return user, err
 }

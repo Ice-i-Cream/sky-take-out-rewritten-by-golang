@@ -65,7 +65,7 @@ func (d *DishMapper) Insert(dish entity.Dish) (dishId int64, err error) {
 	insertSQL := "insert into dish (name, category_id, price, image, description, status, create_time, update_time, create_user, update_user) VALUES (?,?,?,?,?,?,?,?,?,?)"
 	args := []interface{}{dish.Name, dish.CategoryID, dish.Price, dish.Image, dish.Description, dish.Status, dish.CreateTime, dish.UpdateTime, dish.CreateUser, dish.UpdateUser}
 	log.Println(insertSQL, args)
-	res, err := commonParams.Tx.Exec(insertSQL, args...)
+	res, err := functionParams.ExecSQL(insertSQL, args)
 	if err != nil {
 		return 0, err
 	}
@@ -98,7 +98,7 @@ func (d *DishMapper) DeleteByIds(list []string) error {
 
 	deleteSQL := "delete from dish where id in ( " + placeholderStr + " ) "
 	log.Println(deleteSQL, args)
-	_, err := commonParams.Tx.Exec(deleteSQL, args...)
+	_, err := functionParams.ExecSQL(deleteSQL, args)
 	return err
 }
 
@@ -138,7 +138,7 @@ func (d *DishMapper) Update(dish entity.Dish) error {
 	updateSQL = updateSQL + " where id=?"
 	args = append(args, dish.ID)
 	log.Println(updateSQL, args)
-	_, err := commonParams.Db.Exec(updateSQL, args...)
+	_, err := functionParams.ExecSQL(updateSQL, args)
 	return err
 }
 

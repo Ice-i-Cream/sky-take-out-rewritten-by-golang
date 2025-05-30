@@ -92,7 +92,8 @@ func (s *SetmealMapper) PageQuery(dto dto.SetmealPageQueryDTO) (res result.PageR
 
 func (s *SetmealMapper) Insert(setmeal entity.Setmeal) (int, error) {
 	insertSQL := "insert into setmeal (category_id, name, price, description, image, create_time, update_time, create_user, update_user) VALUES (?,?,?,?,?,?,?,?,?)"
-	exec, err := commonParams.Db.Exec(insertSQL, setmeal.CategoryId, setmeal.Name, setmeal.Price, setmeal.Description, setmeal.Image, setmeal.CreateTime, setmeal.UpdateTime, setmeal.CreateUser, setmeal.UpdateUser)
+	args := []interface{}{setmeal.CategoryId, setmeal.Name, setmeal.Price, setmeal.Description, setmeal.Image, setmeal.CreateTime, setmeal.UpdateTime, setmeal.CreateUser, setmeal.UpdateUser}
+	exec, err := functionParams.ExecSQL(insertSQL, args)
 	if err != nil {
 		return 0, err
 	}
@@ -113,7 +114,7 @@ func (s *SetmealMapper) GetById(id int) (setmeal entity.Setmeal, err error) {
 
 func (s *SetmealMapper) DeleteById(id int) error {
 	deleteSQL := "delete from setmeal where id = ?"
-	_, err := commonParams.Tx.Exec(deleteSQL, id)
+	_, err := functionParams.ExecSQL(deleteSQL, []interface{}{id})
 	return err
 
 }
@@ -154,8 +155,7 @@ func (s *SetmealMapper) Update(setmeal entity.Setmeal) error {
 	args = append(args, setmeal.Id)
 
 	log.Println(updateSQL, args)
-
-	_, err := commonParams.Db.Exec(updateSQL, args...)
+	_, err := functionParams.ExecSQL(updateSQL, args)
 	return err
 }
 

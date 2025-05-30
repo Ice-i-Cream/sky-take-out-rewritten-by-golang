@@ -5,6 +5,7 @@ import (
 	"log"
 	"sky-take-out/pojo/entity"
 	"sky-take-out/resources/commonParams"
+	"sky-take-out/resources/functionParams"
 	"strings"
 )
 
@@ -24,13 +25,13 @@ func (m SetmealDishMapper) InsertBatch(dishes []entity.SetmealDish) error {
 	insertSQL := fmt.Sprintf("INSERT INTO setmeal_dish (setmeal_id, dish_id, name, price, copies) VALUES %s", strings.Join(valueStrings, ","))
 
 	log.Println(insertSQL, args)
-	_, err := commonParams.Db.Exec(insertSQL, args...)
+	_, err := functionParams.ExecSQL(insertSQL, args)
 	return err
 }
 
 func (m SetmealDishMapper) DeleteBySetmealId(id int) error {
 	deleteSQL := "delete from setmeal_dish where setmeal_id=?"
-	_, err := commonParams.Tx.Exec(deleteSQL, id)
+	_, err := functionParams.ExecSQL(deleteSQL, []interface{}{id})
 	return err
 }
 

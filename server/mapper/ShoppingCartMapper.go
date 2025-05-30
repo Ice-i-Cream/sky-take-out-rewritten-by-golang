@@ -4,6 +4,7 @@ import (
 	"log"
 	"sky-take-out/pojo/entity"
 	"sky-take-out/resources/commonParams"
+	"sky-take-out/resources/functionParams"
 	"strings"
 )
 
@@ -51,7 +52,7 @@ func (s *ShoppingCartMapper) UpdateNumberById(cart entity.ShoppingCart) error {
 	updateSQL := "update shopping_cart set number = ? where id = ?"
 	args := []interface{}{cart.Number, cart.ID}
 	log.Println(updateSQL, args)
-	_, err := commonParams.Db.Exec(updateSQL, args...)
+	_, err := functionParams.ExecSQL(updateSQL, args)
 	return err
 }
 
@@ -59,7 +60,7 @@ func (s *ShoppingCartMapper) Insert(cart entity.ShoppingCart) error {
 	insertSQL := "insert into shopping_cart (name, image, user_id, dish_id, setmeal_id, dish_flavor, amount, create_time) values (?,?,?,?,?,?,?,?)"
 	args := []interface{}{cart.Name, cart.Image, cart.UserID, cart.DishID, cart.SetmealID, cart.DishFlavor, cart.Amount, cart.CreateTime}
 	log.Println(insertSQL, args)
-	_, err := commonParams.Db.Exec(insertSQL, args...)
+	_, err := functionParams.ExecSQL(insertSQL, args)
 	return err
 }
 
@@ -67,7 +68,7 @@ func (s *ShoppingCartMapper) DeleteByUserId(userId int64) error {
 	deleteSQL := "delete from shopping_cart where user_id = ?"
 	args := []interface{}{userId}
 	log.Println(deleteSQL, args)
-	_, err := commonParams.Tx.Exec(deleteSQL, args...)
+	_, err := functionParams.ExecSQL(deleteSQL, args)
 	return err
 }
 
@@ -81,7 +82,7 @@ func (s *ShoppingCartMapper) InsertBatch(list []entity.ShoppingCart) error {
 	}
 	insertSQL = strings.TrimSuffix(insertSQL, ",")
 	log.Println(insertSQL, args)
-	_, err := commonParams.Tx.Exec(insertSQL, args...)
+	_, err := functionParams.ExecSQL(insertSQL, args)
 	return err
 
 }
@@ -90,6 +91,6 @@ func (s *ShoppingCartMapper) DeleteById(id int64) error {
 	deleteSQL := "delete from shopping_cart where id = ?"
 	args := []interface{}{id}
 	log.Println(deleteSQL, args)
-	_, err := commonParams.Db.Exec(deleteSQL, args...)
+	_, err := functionParams.ExecSQL(deleteSQL, args)
 	return err
 }

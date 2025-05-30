@@ -59,26 +59,23 @@ func (s *SetmealServiceImpl) DeleteBatch(setmeal []string) (err error) {
 		}
 	}
 
-	commonParams.Tx, err = commonParams.Db.Begin()
-	if err != nil {
-		return err
-	}
+	commonParams.Tx, _ = commonParams.Db.Begin()
 
 	for _, i := range setmeal {
 		id := functionParams.ToInt(i)
 		err = mapperParams.SetmealMapper.DeleteById(id)
 		if err != nil {
-			commonParams.Tx.Rollback()
+			functionParams.Rollback()
 			return err
 		}
 		err = mapperParams.SetmealDishMapper.DeleteBySetmealId(id)
 		if err != nil {
-			commonParams.Tx.Rollback()
+			functionParams.Rollback()
 			return err
 		}
 	}
 
-	return commonParams.Tx.Commit()
+	return functionParams.Commit()
 }
 
 func (s *SetmealServiceImpl) GetByIdWithDish(i string) (setmealVO vo.SetmealVO, err error) {
@@ -103,10 +100,7 @@ func (s *SetmealServiceImpl) GetByIdWithDish(i string) (setmealVO vo.SetmealVO, 
 }
 
 func (s *SetmealServiceImpl) Update(setmealDTO dto.SetmealDTO) (err error) {
-	commonParams.Tx, err = commonParams.Db.Begin()
-	if err != nil {
-		return err
-	}
+	commonParams.Tx, _ = commonParams.Db.Begin()
 
 	setmeal := entity.Setmeal{
 		Id:          int(setmealDTO.Id),
@@ -122,20 +116,24 @@ func (s *SetmealServiceImpl) Update(setmealDTO dto.SetmealDTO) (err error) {
 
 	err = mapperParams.SetmealMapper.Update(setmeal)
 	if err != nil {
-		commonParams.Tx.Rollback()
+		functionParams.Rollback()
 		return err
 	}
 	err = mapperParams.SetmealDishMapper.DeleteBySetmealId(setmeal.Id)
 	if err != nil {
-		commonParams.Tx.Rollback()
+		functionParams.Rollback()
 		return err
 	}
 	for index, _ := range setmealDTO.SetmealDishes {
 		setmealDTO.SetmealDishes[index].SetmealID = setmealDTO.Id
 	}
-	commonParams.Tx.Commit()
+	err = mapperParams.SetmealDishMapper.InsertBatch(setmealDTO.SetmealDishes)
+	if err != nil {
+		functionParams.Rollback()
+		return err
+	}
 
-	return mapperParams.SetmealDishMapper.InsertBatch(setmealDTO.SetmealDishes)
+	return functionParams.Commit()
 }
 
 func (s *SetmealServiceImpl) StartOrStop(setmealDTO dto.SetmealDTO) error {

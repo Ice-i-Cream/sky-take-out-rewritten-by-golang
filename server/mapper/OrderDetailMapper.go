@@ -4,6 +4,7 @@ import (
 	"log"
 	"sky-take-out/pojo/entity"
 	"sky-take-out/resources/commonParams"
+	"sky-take-out/resources/functionParams"
 	"strings"
 )
 
@@ -22,7 +23,7 @@ func (o *OrderDetailMapper) InsertBatch(list []entity.OrderDetail) error {
 	}
 	insertSQL = strings.TrimSuffix(insertSQL, ",")
 	log.Println(insertSQL, args)
-	_, err := commonParams.Tx.Exec(insertSQL, args...)
+	_, err := functionParams.ExecSQL(insertSQL, args)
 	return err
 }
 

@@ -6,6 +6,7 @@ import (
 	"sky-take-out/pojo/dto"
 	"sky-take-out/pojo/entity"
 	"sky-take-out/resources/commonParams"
+	"sky-take-out/resources/functionParams"
 	"strings"
 	"time"
 )
@@ -50,14 +51,14 @@ func (c *CategoryMapper) Save(category entity.Category) error {
 	insertSQL := "insert into category (type, name, sort, status, create_time, update_time, create_user, update_user) VALUES (?,?,?,?,?,?,?,?)"
 	args := []interface{}{category.Type, category.Name, category.Sort, category.Status, category.CreateTime, category.UpdateTime, category.CreateUser, category.UpdateUser}
 	log.Println(insertSQL, args)
-	_, err := commonParams.Db.Exec(insertSQL, args...)
+	_, err := functionParams.ExecSQL(insertSQL, args)
 	return err
 }
 
 func (c *CategoryMapper) DeleteById(value int) error {
 	deleteSQL := "delete from category where id=?"
 	log.Println(deleteSQL, value)
-	_, err := commonParams.Db.Exec(deleteSQL, value)
+	_, err := functionParams.ExecSQL(deleteSQL, []interface{}{value})
 	return err
 }
 
@@ -89,7 +90,7 @@ func (c *CategoryMapper) Update(category entity.Category) error {
 	updateSQL += " where id=?" + ""
 	args = append(args, category.ID)
 	log.Println(updateSQL, args)
-	_, err := commonParams.Db.Exec(updateSQL, args...)
+	_, err := functionParams.ExecSQL(updateSQL, args)
 	return err
 }
 

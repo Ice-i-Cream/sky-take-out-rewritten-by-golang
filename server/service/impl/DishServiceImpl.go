@@ -23,10 +23,7 @@ func (d *DishServiceImpl) PageQuery(dto dto.DishPageQueryDTO) (result.PageResult
 
 func (d *DishServiceImpl) SaveWithFlavor(dishDTO dto.DishDTO) (err error) {
 
-	commonParams.Tx, err = commonParams.Db.Begin()
-	if err != nil {
-		return err
-	}
+	commonParams.Tx, _ = commonParams.Db.Begin()
 
 	dish := entity.Dish{
 		ID:          int64(functionParams.ToInt(dishDTO.ID)),
@@ -43,7 +40,7 @@ func (d *DishServiceImpl) SaveWithFlavor(dishDTO dto.DishDTO) (err error) {
 	}
 	dishId, err := mapperParams.DishMapper.Insert(dish)
 	if err != nil {
-		_ = commonParams.Tx.Rollback()
+		functionParams.Rollback()
 		return err
 	}
 
@@ -51,12 +48,12 @@ func (d *DishServiceImpl) SaveWithFlavor(dishDTO dto.DishDTO) (err error) {
 	if len(list) > 0 {
 		err = mapperParams.DishFlavorMapper.InsertBatch(list, dishId)
 		if err != nil {
-			_ = commonParams.Tx.Rollback()
+			functionParams.Rollback()
 			return err
 		}
 	}
 
-	return commonParams.Tx.Commit()
+	return functionParams.Commit()
 }
 
 func (d *DishServiceImpl) DeleteBatch(list []string) (err error) {
@@ -78,21 +75,19 @@ func (d *DishServiceImpl) DeleteBatch(list []string) (err error) {
 		return fmt.Errorf(constant.SETMEAL_ON_SALE)
 	}
 
-	if commonParams.Tx, err = commonParams.Db.Begin(); err != nil {
-		return err
-	}
+	commonParams.Tx, _ = commonParams.Db.Begin()
 
 	if err = mapperParams.DishMapper.DeleteByIds(list); err != nil {
-		_ = commonParams.Tx.Rollback()
+		functionParams.Rollback()
 		return err
 	}
 
 	if err = mapperParams.DishFlavorMapper.DeleteByDishIds(list); err != nil {
-		_ = commonParams.Tx.Rollback()
+		functionParams.Rollback()
 		return err
 	}
 
-	return commonParams.Tx.Commit()
+	return functionParams.Commit()
 }
 
 func (d *DishServiceImpl) GetByIdWithFlavor(id int) (vo.DishVO, error) {
@@ -132,29 +127,31 @@ func (d *DishServiceImpl) UpdateWithFlavor(dishDTO dto.DishDTO) (err error) {
 		UpdateUser:  functionParams.GetUser(commonParams.Thread.Get()["empId"]),
 	}
 
+	commonParams.Tx, _ = commonParams.Db.Begin()
+
 	err = mapperParams.DishMapper.Update(dish)
 	if err != nil {
+		functionParams.Rollback()
 		return err
 	}
 
 	list := dishDTO.Flavors
-	commonParams.Tx, err = commonParams.Db.Begin()
 
 	err = mapperParams.DishFlavorMapper.DeleteByDishId(dish.ID)
 	if err != nil {
-		_ = commonParams.Tx.Rollback()
+		functionParams.Rollback()
 		return err
 	}
 
 	if len(list) > 0 {
 		err = mapperParams.DishFlavorMapper.InsertBatch(list, dish.ID)
 		if err != nil {
-			_ = commonParams.Tx.Rollback()
+			functionParams.Rollback()
 			return err
 		}
 	}
 
-	return commonParams.Tx.Commit()
+	return functionParams.Commit()
 }
 
 func (d *DishServiceImpl) List(id int) ([]entity.Dish, error) {

@@ -6,6 +6,7 @@ import (
 	"sky-take-out/pojo/dto"
 	"sky-take-out/pojo/entity"
 	"sky-take-out/resources/commonParams"
+	"sky-take-out/resources/functionParams"
 	"strings"
 	"time"
 )
@@ -24,7 +25,7 @@ func (o *OrderMapper) Insert(orders entity.Orders) (entity.Orders, error) {
 		orders.TablewareStatus,
 	}
 	log.Println(insertSQL, args)
-	exec, err := commonParams.Tx.Exec(insertSQL, args...)
+	exec, err := functionParams.ExecSQL(insertSQL, args)
 	if err != nil {
 		return entity.Orders{}, err
 	}

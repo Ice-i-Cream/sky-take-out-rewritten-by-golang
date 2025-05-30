@@ -1,9 +1,11 @@
 package functionParams
 
 import (
+	"database/sql"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"sky-take-out/common/result"
+	"sky-take-out/resources/commonParams"
 	"strconv"
 	"strings"
 )
@@ -71,4 +73,24 @@ func ToInt(in interface{}) int {
 		}
 	}
 	return -1
+}
+
+func Rollback() {
+	commonParams.Tx.Rollback()
+	commonParams.Tx = nil
+}
+
+func Commit() error {
+	err := commonParams.Tx.Commit()
+	commonParams.Tx = nil
+	return err
+}
+
+func ExecSQL(SQL string, args []interface{}) (res sql.Result, err error) {
+	if commonParams.Tx == nil {
+		res, err = commonParams.Db.Exec(SQL, args...)
+	} else {
+		res, err = commonParams.Tx.Exec(SQL, args...)
+	}
+	return res, err
 }

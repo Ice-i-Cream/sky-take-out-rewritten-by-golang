@@ -8,6 +8,7 @@ import (
 	"sky-take-out/pojo/dto"
 	"sky-take-out/pojo/entity"
 	"sky-take-out/resources/commonParams"
+	"sky-take-out/resources/functionParams"
 	"strings"
 	"time"
 )
@@ -44,10 +45,11 @@ func (e *EmployeeMapper) GetById(id int) (empolyee entity.Employee, err error) {
 	return employee, err
 }
 
-func (e *EmployeeMapper) Save(dto entity.Employee) (err error) {
+func (e *EmployeeMapper) Save(dto entity.Employee) error {
 	insertSQL := "insert into employee (name, username, password, phone, sex, id_number, status, create_time, update_time, create_user, update_user) VALUES (?,?,?,?,?,?,?,?,?,?,?)"
 	log.Println(insertSQL)
-	_, err = commonParams.Db.Exec(insertSQL, dto.Name, dto.Username, dto.Password, dto.Phone, dto.Sex, dto.IDNumber, dto.Status, dto.CreateTime, dto.UpdateTime, dto.CreateUser, dto.UpdateUser)
+	args := []interface{}{dto.Name, dto.Username, dto.Password, dto.Phone, dto.Sex, dto.IDNumber, dto.Status, dto.CreateTime, dto.UpdateTime, dto.CreateUser, dto.UpdateUser}
+	_, err := functionParams.ExecSQL(insertSQL, args)
 	return err
 }
 
@@ -81,7 +83,7 @@ func (e *EmployeeMapper) PageQuery(dto dto.EmployeePageQueryDTO) (res result.Pag
 	return res, err
 }
 
-func (e *EmployeeMapper) Update(emp entity.Employee) (err error) {
+func (e *EmployeeMapper) Update(emp entity.Employee) error {
 	updateSQL := "update employee set" + ""
 	var args []interface{}
 	var updates []string
@@ -131,6 +133,6 @@ func (e *EmployeeMapper) Update(emp entity.Employee) (err error) {
 	args = append(args, emp.ID)
 
 	log.Println(updateSQL, args)
-	_, err = commonParams.Db.Exec(updateSQL, args...)
+	_, err := functionParams.ExecSQL(updateSQL, args)
 	return err
 }

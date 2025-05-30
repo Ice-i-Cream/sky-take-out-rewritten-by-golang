@@ -4,6 +4,7 @@ import (
 	"log"
 	"sky-take-out/pojo/entity"
 	"sky-take-out/resources/commonParams"
+	"sky-take-out/resources/functionParams"
 	"strings"
 )
 
@@ -49,7 +50,7 @@ func (a *AddressBookMapper) Insert(book entity.AddressBook) error {
 	insertSQL := "insert into address_book (user_id, consignee, sex, phone, province_code, province_name, city_code, city_name, district_code, district_name, detail, label, is_default) values (?,?,?,?,?,?,?,?,?,?,?,?,?)"
 	args := []interface{}{book.UserID, book.Consignee, book.Sex, book.Phone, book.ProvinceCode, book.ProvinceName, book.CityCode, book.CityName, book.DistrictCode, book.DistrictName, book.Detail, book.Label, book.IsDefault}
 	log.Println(insertSQL, args)
-	_, err := commonParams.Db.Exec(insertSQL, args...)
+	_, err := functionParams.ExecSQL(insertSQL, args)
 	return err
 }
 
@@ -107,7 +108,7 @@ func (a *AddressBookMapper) Update(book entity.AddressBook) error {
 	updateSQL = strings.TrimSuffix(updateSQL, ",") + " where id = ?"
 	args = append(args, book.ID)
 	log.Println(updateSQL, args)
-	_, err := commonParams.Db.Exec(updateSQL, args...)
+	_, err := functionParams.ExecSQL(updateSQL, args)
 	return err
 }
 
@@ -115,7 +116,7 @@ func (a *AddressBookMapper) UpdateIsDefaultByUserId(book entity.AddressBook) err
 	updateIsDefaultSQL := "update address_book set is_default = ? where user_id = ?"
 	args := []interface{}{book.IsDefault, book.UserID}
 	log.Println(updateIsDefaultSQL, args)
-	_, err := commonParams.Db.Exec(updateIsDefaultSQL, args...)
+	_, err := functionParams.ExecSQL(updateIsDefaultSQL, args)
 	return err
 }
 
@@ -123,7 +124,7 @@ func (a *AddressBookMapper) DeleteById(id int64) error {
 	deleteSQL := "delete from address_book where id = ?"
 	args := []interface{}{id}
 	log.Println(deleteSQL, args)
-	_, err := commonParams.Db.Exec(deleteSQL, args...)
+	_, err := functionParams.ExecSQL(deleteSQL, args)
 	return err
 }
 

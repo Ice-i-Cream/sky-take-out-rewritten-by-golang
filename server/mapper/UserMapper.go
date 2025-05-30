@@ -4,6 +4,7 @@ import (
 	"log"
 	"sky-take-out/pojo/entity"
 	"sky-take-out/resources/commonParams"
+	"sky-take-out/resources/functionParams"
 	"time"
 )
 
@@ -29,7 +30,7 @@ func (u *UserMapper) Insert(user entity.User) error {
 	insertSQL := "insert into user (openid, name, phone, sex, id_number, avatar, create_time) values (?,?,?,?,?,?,?)"
 	args := []interface{}{user.OpenID, user.Name, user.Phone, user.Sex, user.IdNumber, user.Avatar, user.CreateTime}
 	log.Println(insertSQL, args)
-	_, err := commonParams.Tx.Exec(insertSQL, args...)
+	_, err := functionParams.ExecSQL(insertSQL, args)
 	return err
 }
 

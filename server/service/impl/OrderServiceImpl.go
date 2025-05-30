@@ -97,13 +97,10 @@ func (o *OrderServiceImpl) SubmitOrder(dto dto.OrdersSubmitDTO) (orderVO vo.Orde
 		UserID:                int64(userId),
 	}
 
-	commonParams.Tx, err = commonParams.Db.Begin()
-	if err != nil {
-		return orderVO, err
-	}
+	commonParams.Tx, _ = commonParams.Db.Begin()
 	orders, err = mapperParams.OrderMapper.Insert(orders)
 	if err != nil {
-		commonParams.Tx.Rollback()
+		functionParams.Rollback()
 		return orderVO, err
 	}
 	var orderDetailList []entity.OrderDetail
@@ -123,13 +120,13 @@ func (o *OrderServiceImpl) SubmitOrder(dto dto.OrdersSubmitDTO) (orderVO vo.Orde
 
 	err = mapperParams.OrderDetailMapper.InsertBatch(orderDetailList)
 	if err != nil {
-		commonParams.Tx.Rollback()
+		functionParams.Rollback()
 		return orderVO, err
 	}
 
 	err = mapperParams.ShoppingCartMapper.DeleteByUserId(int64(userId))
 	if err != nil {
-		commonParams.Tx.Rollback()
+		functionParams.Rollback()
 		return vo.OrderSubmitVO{}, err
 	}
 
@@ -138,7 +135,7 @@ func (o *OrderServiceImpl) SubmitOrder(dto dto.OrdersSubmitDTO) (orderVO vo.Orde
 		OrderNumber: orders.Number,
 		OrderAmount: orders.Amount,
 		OrderTime:   orders.OrderTime,
-	}, commonParams.Tx.Commit()
+	}, functionParams.Commit()
 }
 
 func (o *OrderServiceImpl) PageQueryForUser(pageNum int, pageSize int, status int) (result.PageResult, error) {
@@ -481,15 +478,12 @@ func (o *OrderServiceImpl) Repetition(id int) error {
 		}
 		shoppingCartList = append(shoppingCartList, shoppingCart)
 	}
-	commonParams.Tx, err = commonParams.Db.Begin()
-	if err != nil {
-		return err
-	}
+	commonParams.Tx, _ = commonParams.Db.Begin()
 	err = mapperParams.ShoppingCartMapper.InsertBatch(shoppingCartList)
 	if err != nil {
-		commonParams.Tx.Rollback()
+		functionParams.Rollback()
 		return err
 	}
-	return commonParams.Tx.Commit()
+	return functionParams.Commit()
 
 }

@@ -20,7 +20,7 @@ func (d *DishFlavorMapper) InsertBatch(list []entity.DishFlavor, dishId int64) e
 		args = append(args, dishId, flavor.Name, flavor.Value)
 	}
 	log.Println(insertSQL, args)
-	_, err := commonParams.Tx.Exec(insertSQL, args...)
+	_, err := functionParams.ExecSQL(insertSQL, args)
 	return err
 }
 
@@ -39,7 +39,7 @@ func (d *DishFlavorMapper) DeleteByDishIds(list []string) error {
 	deleteSQL := "delete from dish_flavor where dish_flavor.dish_id in ( " + placeholderStr + " ) "
 
 	log.Println(deleteSQL, args)
-	_, err := commonParams.Tx.Exec(deleteSQL, args...)
+	_, err := functionParams.ExecSQL(deleteSQL, args)
 	return err
 }
 
@@ -62,7 +62,7 @@ func (d *DishFlavorMapper) GetByDishId(id int) (list []entity.DishFlavor, err er
 func (d *DishFlavorMapper) DeleteByDishId(id int64) error {
 	deleteSQL := "delete from dish_flavor where dish_id = ?"
 	log.Println(deleteSQL, id)
-	_, err := commonParams.Tx.Exec(deleteSQL, id)
+	_, err := functionParams.ExecSQL(deleteSQL, []interface{}{id})
 	return err
 
 }
