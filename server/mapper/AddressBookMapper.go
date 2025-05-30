@@ -33,7 +33,6 @@ func (a *AddressBookMapper) List(book entity.AddressBook) ([]entity.AddressBook,
 	if err != nil {
 		log.Println(err)
 	}
-	defer rows.Close()
 	var addressBooks []entity.AddressBook
 	for rows.Next() {
 		var book entity.AddressBook
