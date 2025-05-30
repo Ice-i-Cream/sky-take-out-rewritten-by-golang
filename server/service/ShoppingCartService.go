@@ -8,4 +8,6 @@ import (
 type ShoppingCartService interface {
 	ShowShoppingCart() ([]entity.ShoppingCart, error)
 	AddShoppingCart(dto dto.ShoppingCartDTO) error
+	CleanShoppingCart() error
+	SubShoppingCart(dto dto.ShoppingCartDTO) error
 }

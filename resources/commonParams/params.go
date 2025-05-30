@@ -9,8 +9,10 @@ import (
 	"github.com/timandy/routine"
 	"log"
 	"sky-take-out/common/properties"
+	"sky-take-out/server/websocket"
 )
 
+var WSServer = websocket.NewWebSocketServer()
 var WX_LOGIN = "https://api.weixin.qq.com/sns/jscode2session"
 var Thread = routine.NewThreadLocal[map[string]interface{}]()
 var Db *sql.DB

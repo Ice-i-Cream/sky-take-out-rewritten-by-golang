@@ -11,6 +11,9 @@ var AdminDishController admin.DishController
 var AdminCommonController admin.CommonController
 var AdminSetmealController admin.SetMealController
 var AdminShopController admin.ShopController
+var AdminOrderController admin.OrderController
+var AdminReportController admin.ReportController
+var AdminWorkSpaceController admin.WorkSpaceController
 
 var UserDishController user.DishController
 var UserShoppingCartController user.ShoppingCartController

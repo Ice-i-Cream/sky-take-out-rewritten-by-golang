@@ -1,6 +1,7 @@
 package impl
 
 import (
+	"fmt"
 	"sky-take-out/pojo/dto"
 	"sky-take-out/pojo/entity"
 	"sky-take-out/resources/commonParams"
@@ -39,10 +40,7 @@ func (s *ShoppingCartServiceImpl) AddShoppingCart(dto dto.ShoppingCartDTO) error
 	if len(list) > 0 {
 		cart := list[0]
 		cart.Number = cart.Number + 1
-		err := mapperParams.ShoppingCartMapper.UpdateNumberById(cart)
-		if err != nil {
-			return err
-		}
+		err = mapperParams.ShoppingCartMapper.UpdateNumberById(cart)
 	} else {
 		if dto.DishId != 0 {
 			dishId := dto.DishId
@@ -65,10 +63,46 @@ func (s *ShoppingCartServiceImpl) AddShoppingCart(dto dto.ShoppingCartDTO) error
 		}
 		shoppingCart.Number = 1
 		shoppingCart.CreateTime = time.Now()
-		err := mapperParams.ShoppingCartMapper.Insert(shoppingCart)
-		if err != nil {
-			return err
-		}
+		err = mapperParams.ShoppingCartMapper.Insert(shoppingCart)
 	}
-	return nil
+	return err
+}
+
+func (s *ShoppingCartServiceImpl) CleanShoppingCart() (err error) {
+	userId := commonParams.Thread.Get()["userId"].(float64)
+	commonParams.Tx, err = commonParams.Db.Begin()
+	if err != nil {
+		return err
+	}
+
+	err = mapperParams.ShoppingCartMapper.DeleteByUserId(int64(userId))
+	if err != nil {
+		commonParams.Tx.Rollback()
+		return err
+	}
+	return commonParams.Tx.Commit()
+
+}
+
+func (s *ShoppingCartServiceImpl) SubShoppingCart(dto dto.ShoppingCartDTO) error {
+	userId := int64(commonParams.Thread.Get()["userId"].(float64))
+	shoppingCart := entity.ShoppingCart{
+		DishID:     dto.DishId,
+		SetmealID:  dto.SetmealId,
+		DishFlavor: dto.DishFlavor,
+		UserID:     userId,
+	}
+
+	list, err := mapperParams.ShoppingCartMapper.List(shoppingCart)
+	if err != nil || len(list) < 1 {
+		return fmt.Errorf("shopping cart not exist")
+	}
+	cart := list[0]
+	if cart.Number > 1 {
+		cart.Number = cart.Number - 1
+		err = mapperParams.ShoppingCartMapper.UpdateNumberById(cart)
+	} else {
+		err = mapperParams.ShoppingCartMapper.DeleteById(cart.ID)
+	}
+	return err
 }

@@ -33,3 +33,26 @@ func (s *ShoppingCartController) List(ctx *gin.Context) {
 	data, err := exec(ctx)
 	functionParams.PostProcess(ctx, err, data)
 }
+
+func (s *ShoppingCartController) Clean(ctx *gin.Context) {
+	exec := func(ctx *gin.Context) (data interface{}, err error) {
+		return nil, serviceParams.ShoppingCartService.CleanShoppingCart()
+	}
+	data, err := exec(ctx)
+	functionParams.PostProcess(ctx, err, data)
+}
+
+func (s *ShoppingCartController) Sub(ctx *gin.Context) {
+	exec := func(ctx *gin.Context) (data interface{}, err error) {
+		shoppingCartDTO := dto.ShoppingCartDTO{}
+		err = ctx.ShouldBind(&shoppingCartDTO)
+		if err != nil {
+			return nil, err
+		}
+		log.Printf("取消购物车，商品信息：%d\n", shoppingCartDTO.DishId)
+		return nil, serviceParams.ShoppingCartService.SubShoppingCart(shoppingCartDTO)
+	}
+	data, err := exec(ctx)
+	functionParams.PostProcess(ctx, err, data)
+
+}

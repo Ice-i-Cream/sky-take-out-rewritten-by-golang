@@ -176,3 +176,28 @@ func (d *DishMapper) List(dish entity.Dish) (list []entity.Dish, err error) {
 	}
 	return list, err
 }
+
+func (d *DishMapper) CountByMap(m map[interface{}]interface{}) (int64, error) {
+	selectSQL := "select count(id) as count from dish where true"
+	args := []interface{}{}
+	status := m["status"].(int)
+	categoryId := m["categoryId"].(int)
+	if status != -1 {
+		selectSQL += " and status = ?"
+		args = append(args, status)
+	}
+	if categoryId != -1 {
+		selectSQL += " and categoryId = ?"
+		args = append(args, categoryId)
+	}
+	log.Println(selectSQL, args)
+	rows, err := commonParams.Db.Query(selectSQL, args...)
+	if err != nil {
+		return 0, err
+	}
+	var count int64
+	for rows.Next() {
+		err = rows.Scan(&count)
+	}
+	return count, err
+}

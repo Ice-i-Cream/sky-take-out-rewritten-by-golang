@@ -163,6 +163,7 @@ func (s *SetmealMapper) List(setmeal entity.Setmeal) (setmeals []entity.Setmeal,
 	selectSQL := "select * from setmeal where true"
 	args := []interface{}{}
 
+	setmeals = []entity.Setmeal{}
 	if setmeal.Name != "" {
 		selectSQL += " and name = ?"
 		args = append(args, setmeal.Name)
@@ -206,4 +207,29 @@ func (s *SetmealMapper) GetDishItemBySetmealId(id int64) (vos []vo.DishItemVO, e
 		vos = append(vos, dishvo)
 	}
 	return vos, err
+}
+
+func (s *SetmealMapper) CountByMap(m map[interface{}]interface{}) (int64, error) {
+	selectSQL := "select count(id) as count from setmeal where true"
+	args := []interface{}{}
+	status := m["status"].(int)
+	categoryId := m["categoryId"].(int)
+	if status != -1 {
+		selectSQL += " and status = ?"
+		args = append(args, status)
+	}
+	if categoryId != -1 {
+		selectSQL += " and categoryId = ?"
+		args = append(args, categoryId)
+	}
+	log.Println(selectSQL, args)
+	rows, err := commonParams.Db.Query(selectSQL, args...)
+	if err != nil {
+		return 0, err
+	}
+	var count int64
+	for rows.Next() {
+		err = rows.Scan(&count)
+	}
+	return count, err
 }
