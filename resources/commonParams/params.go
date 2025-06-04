@@ -29,6 +29,7 @@ var DatabasePort string
 var JwtProperties properties.JwtProperties
 var WechatAppid string
 var WechatSecret string
+var Do func() (interface{}, error)
 
 func init() {
 	var cfg, err = ini.Load("resources/app.conf")

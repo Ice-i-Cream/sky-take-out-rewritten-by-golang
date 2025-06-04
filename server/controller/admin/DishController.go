@@ -91,6 +91,7 @@ func (d *DishController) StartOrStop(ctx *gin.Context) {
 	exec := func(ctx *gin.Context) (data interface{}, err error) {
 		id := functionParams.ToInt(ctx.Query("id"))
 		status := functionParams.ToInt(ctx.Param("status"))
+		_ = functionParams.CleanCache("setmealCache::")
 		return nil, serviceParams.DishService.StartOrStop(status, id)
 	}
 	data, err := exec(ctx)

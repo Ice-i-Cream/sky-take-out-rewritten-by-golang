@@ -2,12 +2,23 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/robfig/cron/v3"
 	"sky-take-out/resources/commonParams"
 	"sky-take-out/resources/controllerParams"
+	"sky-take-out/resources/taskParams"
 	"sky-take-out/server/interceptor"
 )
 
 func SetupRouter() *gin.Engine {
+	go func() {
+		c := cron.New()
+		_, _ = c.AddFunc("@every 1m", func() {
+			taskParams.OrderTask.ProcessTimeoutOrder()
+			taskParams.OrderTask.ProcessDeliveryOrder()
+		})
+		c.Start()
+		select {}
+	}()
 	r := gin.Default()
 	r.Use(interceptor.JwtTokenAdminInterceptor())
 	r.Use(interceptor.JwtTokenUserInterceptor())
@@ -67,7 +78,7 @@ func SetupRouter() *gin.Engine {
 	r.PUT("/admin/order/rejection", controllerParams.AdminOrderController.Rejection)
 	r.PUT("/admin/order/cancel", controllerParams.AdminOrderController.Cancel)
 	r.PUT("/admin/order/delivery/:id", controllerParams.AdminOrderController.Delivery)
-	r.PUT("admin/order/complete/:id", controllerParams.AdminOrderController.Complete)
+	r.PUT("/admin/order/complete/:id", controllerParams.AdminOrderController.Complete)
 
 	r.GET("/user/dish/list", controllerParams.UserDishController.List)
 
@@ -98,7 +109,7 @@ func SetupRouter() *gin.Engine {
 	r.GET("/user/order/orderDetail/:id", controllerParams.UserOrderController.OrderDetail)
 	r.PUT("/user/order/payment", controllerParams.UserOrderController.Payment)
 	r.GET("/user/order/reminder/:id", controllerParams.UserOrderController.Reminder)
-	r.POST("user/order/repetition/:id", controllerParams.UserOrderController.Repetition)
+	r.POST("/user/order/repetition/:id", controllerParams.UserOrderController.Repetition)
 
 	return r
 }

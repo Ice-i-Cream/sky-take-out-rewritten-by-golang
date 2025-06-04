@@ -281,3 +281,21 @@ func (o *OrderMapper) SumAllByMap(m map[interface{}]interface{}) (float64, error
 	}
 	return total, nil
 }
+
+func (o *OrderMapper) GetByStatusAndOrderTimeLT(status int, t time.Time) ([]entity.Orders, error) {
+	selectSQL := "select * from orders where status = ? and order_time < ?"
+	args := []interface{}{status, t}
+	log.Println(selectSQL, args)
+	list := []entity.Orders{}
+	rows, err := commonParams.Db.Query(selectSQL, args...)
+	if err != nil {
+		return list, err
+	}
+
+	for rows.Next() {
+		orders := entity.Orders{}
+		err = rows.Scan(&orders.ID, &orders.Number, &orders.Status, &orders.UserID, &orders.AddressBookID, &orders.OrderTime, &orders.CheckoutTime, &orders.PayMethod, &orders.PayStatus, &orders.Amount, &orders.Remark, &orders.Phone, &orders.Address, &orders.UserName, &orders.Consignee, &orders.CancelReason, &orders.RejectionReason, &orders.CancelTime, &orders.EstimatedDeliveryTime, &orders.DeliveryStatus, &orders.DeliveryTime, &orders.PackAmount, &orders.TablewareNumber, &orders.TablewareStatus)
+		list = append(list, orders)
+	}
+	return list, err
+}

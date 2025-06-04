@@ -78,7 +78,7 @@ func (s *SetMealController) StartOrStop(ctx *gin.Context) {
 			Status: functionParams.ToInt(ctx.Param("status")),
 			Id:     int64(functionParams.ToInt(ctx.Query("id"))),
 		}
-
+		_ = functionParams.CleanCache("dishCache::")
 		err = serviceParams.SetmealService.StartOrStop(setmealDTO)
 		return nil, err
 	}

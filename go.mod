@@ -12,6 +12,7 @@ require (
 	github.com/google/uuid v1.6.0
 	github.com/gorilla/websocket v1.5.3
 	github.com/json-iterator/go v1.1.12
+	github.com/robfig/cron/v3 v3.0.1
 	github.com/timandy/routine v1.1.5
 	github.com/xuri/excelize/v2 v2.9.1
 )

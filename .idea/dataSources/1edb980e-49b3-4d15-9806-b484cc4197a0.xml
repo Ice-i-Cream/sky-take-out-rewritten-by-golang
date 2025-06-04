@@ -962,7 +962,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="279" parent="1" name="sky_take_out">
-      <LastIntrospectionLocalTimestamp>2025-05-27.15:04:55</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-06-04.08:19:24</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <user id="280" parent="1" name="mysql.infoschema">
@@ -1039,7 +1039,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8_bin</CollationName>
     </table>
     <column id="295" parent="284" name="id">
-      <AutoIncrement>8</AutoIncrement>
+      <AutoIncrement>9</AutoIncrement>
       <Comment>主键</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -1279,7 +1279,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>idx_dish_name</UnderlyingIndexName>
     </key>
     <column id="339" parent="287" name="id">
-      <AutoIncrement>250</AutoIncrement>
+      <AutoIncrement>252</AutoIncrement>
       <Comment>主键</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -1400,7 +1400,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>idx_username</UnderlyingIndexName>
     </key>
     <column id="361" parent="289" name="id">
-      <AutoIncrement>140</AutoIncrement>
+      <AutoIncrement>174</AutoIncrement>
       <Comment>主键</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -1461,7 +1461,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="372" parent="290" name="id">
-      <AutoIncrement>87</AutoIncrement>
+      <AutoIncrement>102</AutoIncrement>
       <Comment>主键</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -1686,7 +1686,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>idx_setmeal_name</UnderlyingIndexName>
     </key>
     <column id="413" parent="292" name="id">
-      <AutoIncrement>213</AutoIncrement>
+      <AutoIncrement>232</AutoIncrement>
       <Comment>主键</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -1728,7 +1728,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="421" parent="293" name="id">
-      <AutoIncrement>167</AutoIncrement>
+      <AutoIncrement>213</AutoIncrement>
       <Comment>主键</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -1794,7 +1794,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="433" parent="294" name="id">
-      <AutoIncrement>7</AutoIncrement>
+      <AutoIncrement>8</AutoIncrement>
       <Comment>主键</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
