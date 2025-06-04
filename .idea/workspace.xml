@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0ea88e9-355b-4437-8bd2-0257141236ed" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/file/b4f41a11-bc9a-4c95-ae35-c8ef779c9974.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1edb980e-49b3-4d15-9806-b484cc4197a0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1edb980e-49b3-4d15-9806-b484cc4197a0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b486ed75-c359-42de-90ea-07b6fb6a2015.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b486ed75-c359-42de-90ea-07b6fb6a2015.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/functionParams/params.go" beforeDir="false" afterPath="$PROJECT_DIR$/resources/functionParams/params.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controller/admin/DishController.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/admin/DishController.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controller/admin/SetmealController.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/controller/admin/SetmealController.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
