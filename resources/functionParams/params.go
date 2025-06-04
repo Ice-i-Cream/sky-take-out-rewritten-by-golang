@@ -140,6 +140,6 @@ func CleanCache(prefix string) error {
 		}
 	}
 
-	log.Println("Deleted keys with prefix '%s' \n", prefix)
+	log.Printf("Deleted keys with prefix '%s' \n", prefix)
 	return nil
 }

@@ -962,7 +962,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <schema id="279" parent="1" name="sky_take_out">
-      <LastIntrospectionLocalTimestamp>2025-06-04.08:19:24</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-06-04.13:23:15</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
     <user id="280" parent="1" name="mysql.infoschema">

@@ -23,6 +23,8 @@
     <schema id="16" parent="1" name="8"/>
     <schema id="17" parent="1" name="9"/>
     <collection id="18" parent="2" name="SHOP_STATUS"/>
-    <collection id="19" parent="2" name="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsiZW1wSWQiOjF9LCJleHAiOjE3NDkwNDQwNzZ9.S5DsdFEBSQngKgCinVvXH2GLAV6L1jZEdoekglQd-2c"/>
+    <collection id="19" parent="2" name="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsiZW1wSWQiOjF9LCJleHAiOjE3NDkwNDcwMjR9.Bp6NsSlL-cbTxoz4RBZ5mKCKYzo93ewxtKs2RX3Go24"/>
+    <collection id="20" parent="2" name="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsidXNlcklkIjoxfSwiZXhwIjoxNzQ5MDQ3MDMzfQ.c8W5luzbPWBxSx8mYCRD1ony_hNioFZ9kJSC4GlWF5c"/>
+    <collection id="21" parent="2" name="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsidXNlcklkIjoxfSwiZXhwIjoxNzQ5MDQ3NTk2fQ.KlL59lO3RhQ3CK7UYaofD9IuKX1h2sAAKa3IgaNHaNA"/>
   </database-model>
 </dataSource>

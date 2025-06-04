@@ -34,6 +34,7 @@ func (s *SetMealController) Save(ctx *gin.Context) {
 		}
 		return nil, serviceParams.SetmealService.SaveWithDish(setmealDTO)
 	}
+	_ = functionParams.CleanCache("setmealCache::")
 	data, err := exec(ctx)
 	functionParams.PostProcess(ctx, err, data)
 }
@@ -42,8 +43,10 @@ func (s *SetMealController) Delete(ctx *gin.Context) {
 	exec := func(ctx *gin.Context) (data interface{}, err error) {
 		setmeal := strings.Split(ctx.Query("ids"), ",")
 		err = serviceParams.SetmealService.DeleteBatch(setmeal)
+
 		return nil, err
 	}
+	_ = functionParams.CleanCache("setmealCache::")
 	data, err := exec(ctx)
 	functionParams.PostProcess(ctx, err, data)
 }
@@ -51,8 +54,7 @@ func (s *SetMealController) Delete(ctx *gin.Context) {
 func (s *SetMealController) GetById(ctx *gin.Context) {
 
 	exec := func(ctx *gin.Context) (data interface{}, err error) {
-		setmealVO, err := serviceParams.SetmealService.GetByIdWithDish(ctx.Param("id"))
-		return setmealVO, err
+		return serviceParams.SetmealService.GetByIdWithDish(ctx.Param("id"))
 	}
 	data, err := exec(ctx)
 	functionParams.PostProcess(ctx, err, data)
@@ -66,8 +68,10 @@ func (s *SetMealController) Update(ctx *gin.Context) {
 			return nil, err
 		}
 		err = serviceParams.SetmealService.Update(setmealDTO)
+
 		return nil, err
 	}
+	_ = functionParams.CleanCache("setmealCache::")
 	data, err := exec(ctx)
 	functionParams.PostProcess(ctx, err, data)
 }
@@ -78,10 +82,10 @@ func (s *SetMealController) StartOrStop(ctx *gin.Context) {
 			Status: functionParams.ToInt(ctx.Param("status")),
 			Id:     int64(functionParams.ToInt(ctx.Query("id"))),
 		}
-		_ = functionParams.CleanCache("dishCache::")
 		err = serviceParams.SetmealService.StartOrStop(setmealDTO)
 		return nil, err
 	}
+	_ = functionParams.CleanCache("dishCache::")
 	data, err := exec(ctx)
 	functionParams.PostProcess(ctx, err, data)
 }

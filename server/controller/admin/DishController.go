@@ -21,6 +21,7 @@ func (d *DishController) Save(ctx *gin.Context) {
 		}
 		return nil, serviceParams.DishService.SaveWithFlavor(dishDTO)
 	}
+	_ = functionParams.CleanCache("dishCache::")
 	data, err := exec(ctx)
 	functionParams.PostProcess(ctx, err, data)
 }
@@ -49,6 +50,7 @@ func (d *DishController) Delete(ctx *gin.Context) {
 		list := strings.Split(ctx.Query("ids"), ",")
 		return nil, serviceParams.DishService.DeleteBatch(list)
 	}
+	_ = functionParams.CleanCache("dishCache::")
 	data, err := exec(ctx)
 	functionParams.PostProcess(ctx, err, data)
 }
@@ -74,6 +76,7 @@ func (d *DishController) Update(ctx *gin.Context) {
 		}
 		return nil, serviceParams.DishService.UpdateWithFlavor(dishDTO)
 	}
+	_ = functionParams.CleanCache("dishCache::")
 	data, err := exec(ctx)
 	functionParams.PostProcess(ctx, err, data)
 }
@@ -91,9 +94,9 @@ func (d *DishController) StartOrStop(ctx *gin.Context) {
 	exec := func(ctx *gin.Context) (data interface{}, err error) {
 		id := functionParams.ToInt(ctx.Query("id"))
 		status := functionParams.ToInt(ctx.Param("status"))
-		_ = functionParams.CleanCache("setmealCache::")
 		return nil, serviceParams.DishService.StartOrStop(status, id)
 	}
+	_ = functionParams.CleanCache("dishCache::")
 	data, err := exec(ctx)
 	functionParams.PostProcess(ctx, err, data)
 }
